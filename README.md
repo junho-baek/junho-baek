@@ -2,8 +2,6 @@
 
 ### 📊 Github Stats
 
-### 📊 Github Stats
-
 <div align="center">
 <a href='https://github.com/junho-baek/github-readme-stats'>
     
