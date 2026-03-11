@@ -1,0 +1,17 @@
+{
+  "name": "junho-baek-profile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render:terminal-mp4": "remotion render remotion/index.jsx TerminalPreview out/terminal-preview.mp4",
+    "render:terminal-gif": "npm run render:terminal-mp4 && ffmpeg -y -i out/terminal-preview.mp4 -vf \"fps=10,scale=960:-1:flags=lanczos,split[s0][s1];[s0]palettegen=stats_mode=single[p];[s1][p]paletteuse=dither=bayer:bayer_scale=3\" assets/terminal-preview.gif"
+  },
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.434"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.434"
+  }
+}

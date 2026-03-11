@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://junho-baek.github.io/junho-baek/">
-    <img src="./assets/terminal-preview.png" alt="Preview of Baek Junho's interactive Codex terminal profile" width="100%" />
+    <img src="./assets/terminal-preview.gif" alt="Animated preview of Baek Junho's interactive Codex terminal profile" width="100%" />
   </a>
 </p>
 
