@@ -16,7 +16,13 @@
 </p>
 
 <p align="center">
-  <img src="./assets/capability-hero.svg" alt="A 3D capability map showing Interface, Systems, Data, and Delivery connected around Baek Junho" width="100%" />
+  <a href="https://junho-baek.github.io/junho-baek/">
+    <img src="./assets/terminal-preview.png" alt="Preview of Baek Junho's interactive Codex terminal profile" width="100%" />
+  </a>
+</p>
+
+<p align="center">
+  Click the terminal preview to open the live interactive version.
 </p>
 
 ## Launch Build Console
