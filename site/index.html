@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0d1728" />
+    <meta name="theme-color" content="#151619" />
     <title>Baek Junho Terminal</title>
     <meta
       name="description"
-      content="Interactive terminal profile for Baek Junho, built from a real Codex session."
+      content="Single-screen interactive terminal profile for Baek Junho."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -20,7 +20,6 @@
   <body>
     <a class="skip-link" href="#main-content" data-i18n="skipToMain">Skip to main content</a>
     <div class="cursor-light" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
     <div class="shell">
       <header class="titlebar">
         <div class="title-group">
@@ -29,12 +28,10 @@
             <span class="dot dot-yellow"></span>
             <span class="dot dot-green"></span>
           </div>
-          <div class="title" data-i18n="sessionLabel">baekjunho.codex.session</div>
+          <div class="title">baekjunho.terminal.session</div>
         </div>
         <div class="title-actions">
-          <button id="lang-toggle" class="lang-toggle" type="button">
-            KO
-          </button>
+          <button id="lang-toggle" class="lang-toggle" type="button">KO</button>
           <a class="title-link" href="https://github.com/junho-baek" target="_blank" rel="noreferrer">
             github
           </a>
@@ -42,65 +39,24 @@
       </header>
 
       <main id="main-content" class="viewport">
-        <section class="intro panel">
-          <p class="eyebrow" data-i18n="heroEyebrow">Interactive builder log</p>
-          <h1 data-i18n="heroTitle">Codex-Backed Terminal Profile for Baek Junho</h1>
-          <p class="lede" data-i18n="heroLede">
-            Use the dock at the bottom. Each mode replays one slice of product work: interface,
-            systems, data, and shipping loop.
-          </p>
-          <div class="badge-row">
-            <span class="badge" data-i18n="badgeA">Interface + Systems</span>
-            <span class="badge" data-i18n="badgeB">Automation + Data</span>
-            <span class="badge" data-i18n="badgeC">Build and Ship</span>
-          </div>
-        </section>
-
-        <section class="terminal-frame panel">
+        <section class="terminal-frame">
           <div class="terminal-head">
-            <span>ssh junho@builder-node</span>
-            <span class="status" data-i18n="statusConnected">connected</span>
+            <span data-i18n="terminalPath">user@junho:~$ cat who_is_junho_baek.md</span>
+            <span class="status" data-i18n="statusReady">ready</span>
           </div>
-
-          <div class="terminal-graphics" aria-hidden="true">
-            <div class="mascot">
-              <div class="mascot-face">
-                <span class="eye"></span>
-                <span class="eye"></span>
-                <span class="mouth"></span>
-              </div>
-            </div>
-            <div class="signal-bars">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div id="glyph-face" class="glyph-face">(◕‿◕)</div>
-          </div>
-
           <div id="terminal-output" class="terminal-output" aria-live="polite"></div>
         </section>
       </main>
 
       <footer class="command-bar-wrap">
         <div class="metrics">
-          <span><em data-i18n="metricModeLabel">MODE</em>: <strong id="metric-mode">/boot-codex</strong></span>
-          <span
-            ><em data-i18n="metricStackLabel">STACK</em>:
-            <strong data-i18n="metricStackValue">HTML · CSS · JS</strong></span
-          >
-          <span
-            ><em data-i18n="metricSourceLabel">SOURCE</em>:
-            <strong data-i18n="metricSourceValue">real codex exec log</strong></span
-          >
+          <span><em data-i18n="metricModeLabel">MODE</em>: <strong id="metric-mode">/who-is-junho-baek</strong></span>
+          <span><em data-i18n="metricLangLabel">LANG</em>: <strong id="metric-lang">EN</strong></span>
+          <span><em data-i18n="metricSourceLabel">SOURCE</em>: <strong>figlet-style terminal render</strong></span>
         </div>
-
         <button id="command-bar" class="command-bar" type="button" aria-expanded="false">
           <span class="command-prompt">&gt;</span>
-          <span id="command-label" class="command-label" data-i18n="commandOpen">
-            Click to open command modes
-          </span>
+          <span id="command-label" class="command-label" data-i18n="commandOpen">Open command modes</span>
           <span class="command-run" data-i18n="commandRun">Run</span>
         </button>
       </footer>

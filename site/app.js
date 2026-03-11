@@ -1,180 +1,115 @@
+const WHO_IS_BANNER = [
+  " __          ___    _  ____    _____  _____ ",
+  " \\ \\        / / |  | |/ __ \\  |_   _|/ ____|",
+  "  \\ \\  /\\  / /| |__| | |  | |   | | | (___  ",
+  "   \\ \\/  \\/ / |  __  | |  | |   | |  \\___ \\ ",
+  "    \\  /\\  /  | |  | | |__| |  _| |_ ____) |",
+  "     \\/  \\/   |_|  |_|\\____/  |_____|_____/ ",
+];
+
+const JUNHO_BAEK_BANNER = [
+  "       _ _    _ _   _ _    _  ____    ____          ______ _  __",
+  "      | | |  | | \\ | | |  | |/ __ \\  |  _ \\   /\\   |  ____| |/ /",
+  "      | | |  | |  \\| | |__| | |  | | | |_) | /  \\  | |__  | ' / ",
+  "  _   | | |  | | . ` |  __  | |  | | |  _ < / /\\ \\ |  __| |  <  ",
+  " | |__| | |__| | |\\  | |  | | |__| | | |_) / ____ \\| |____| . \\ ",
+  "  \\____/ \\____/|_| \\_|_|  |_|\\____/  |____/_/    \\_\\______|_|\\_\\",
+];
+
 const translations = {
   en: {
     htmlLang: "en",
-    sessionLabel: "baekjunho.codex.session",
-    heroEyebrow: "Interactive builder log",
-    heroTitle: "Codex-Backed Terminal Profile for Baek Junho",
-    heroLede:
-      "Use the dock at the bottom. Each mode replays one slice of product work: interface, systems, data, and shipping loop.",
-    badgeA: "Interface + Systems",
-    badgeB: "Automation + Data",
-    badgeC: "Build and Ship",
-    statusConnected: "connected",
+    skipToMain: "Skip to main content",
+    terminalPath: "user@junho:~$ cat who_is_junho_baek.md",
+    statusReady: "ready",
     metricModeLabel: "MODE",
-    metricStackLabel: "STACK",
-    metricStackValue: "HTML · CSS · JS",
+    metricLangLabel: "LANG",
     metricSourceLabel: "SOURCE",
-    metricSourceValue: "real codex exec log",
-    commandOpen: "Click to open command modes",
+    commandOpen: "Open command modes",
     commandRun: "Run",
     paletteTitle: "Select command",
     paletteHint: "click or use arrow keys + enter",
-    skipToMain: "Skip to main content",
-    nextPrompt: "select next mode from dock",
+    nextPrompt: "pick next mode from the dock",
   },
   ko: {
     htmlLang: "ko",
-    sessionLabel: "baekjunho.codex.session",
-    heroEyebrow: "인터랙티브 빌더 로그",
-    heroTitle: "백준호를 위한 코덱스 기반 터미널 프로필",
-    heroLede:
-      "하단 도크를 열어 모드를 선택하세요. 인터페이스, 시스템, 데이터, 그리고 배송 루프를 실제 작업 흐름처럼 재생합니다.",
-    badgeA: "인터페이스 + 시스템",
-    badgeB: "자동화 + 데이터",
-    badgeC: "빌드 + 배포",
-    statusConnected: "연결됨",
+    skipToMain: "메인 콘텐츠로 건너뛰기",
+    terminalPath: "user@junho:~$ cat who_is_junho_baek.md",
+    statusReady: "준비됨",
     metricModeLabel: "모드",
-    metricStackLabel: "스택",
-    metricStackValue: "HTML · CSS · JS",
+    metricLangLabel: "언어",
     metricSourceLabel: "소스",
-    metricSourceValue: "실제 codex exec 로그",
-    commandOpen: "클릭해서 명령 모드 열기",
+    commandOpen: "명령 모드 열기",
     commandRun: "실행",
     paletteTitle: "명령 선택",
     paletteHint: "클릭 또는 방향키 + 엔터",
-    skipToMain: "메인 콘텐츠로 건너뛰기",
     nextPrompt: "도크에서 다음 모드를 선택하세요",
   },
 };
 
 const commandData = [
   {
-    id: "boot",
-    command: "/boot-codex",
+    id: "who",
+    command: "/who-is-junho-baek",
     description: {
-      en: "Replay the real Codex session boot log and repo scan",
-      ko: "실제 Codex 세션 부팅 로그와 레포 스캔 재생",
+      en: "Render profile headline in FIGlet-style terminal art",
+      ko: "FIGlet 스타일 터미널 헤드라인 출력",
     },
     lines: [
       {
-        type: "system",
-        marker: "boot",
-        text: {
-          en: "OpenAI Codex v0.110.0 (research preview)",
-          ko: "OpenAI Codex v0.110.0 (연구 프리뷰)",
-        },
-      },
-      {
-        type: "output",
-        marker: "cfg",
-        text: {
-          en: "workdir: /Volumes/T7/…/junho-baek | model: gpt-5.4 | sandbox: read-only",
-          ko: "workdir: /Volumes/T7/…/junho-baek | model: gpt-5.4 | sandbox: read-only",
-        },
-      },
-      {
         type: "info",
-        marker: "mcp",
-        text: { en: "mcp startup: ready: playwright, notion", ko: "mcp startup: ready: playwright, notion" },
+        marker: "[0]",
+        text: {
+          en: "/home",
+          ko: "/home",
+        },
       },
       {
         type: "command",
-        marker: "exec",
+        marker: "user",
         text: {
-          en: "/bin/zsh -lc 'rg --files'",
-          ko: "/bin/zsh -lc 'rg --files'",
+          en: "cat who_is_junho_baek.md",
+          ko: "cat who_is_junho_baek.md",
         },
       },
       {
-        type: "output",
-        marker: "out",
+        type: "highlight",
+        marker: "*",
         text: {
-          en: "assets/\nREADME.md\nsite/",
-          ko: "assets/\nREADME.md\nsite/",
+          en: "where interface, systems, and data ship together.",
+          ko: "인터페이스, 시스템, 데이터가 한 루프로 배송되는 곳.",
         },
       },
       {
-        type: "summary",
-        marker: "sum",
+        type: "banner",
+        marker: "fig",
         text: {
-          en: "Builder summary generated from live repo context.",
-          ko: "실시간 레포 컨텍스트 기반 빌더 요약 생성 완료.",
-        },
-      },
-    ],
-  },
-  {
-    id: "builder",
-    command: "/builder-profile",
-    description: {
-      en: "Show the practical builder profile",
-      ko: "실무형 빌더 프로필 요약 보기",
-    },
-    lines: [
-      {
-        type: "summary",
-        marker: "01",
-        text: {
-          en: "Interactive product builder with a systems mindset.",
-          ko: "시스템 마인드셋으로 인터랙티브 제품을 만드는 빌더.",
+          en: [...WHO_IS_BANNER, "", ...JUNHO_BAEK_BANNER],
+          ko: [...WHO_IS_BANNER, "", ...JUNHO_BAEK_BANNER],
         },
       },
       {
         type: "summary",
-        marker: "02",
+        marker: "bio",
         text: {
-          en: "Moves between Interface, API, Data, and Delivery without handoff loss.",
-          ko: "Interface, API, Data, Delivery를 핸드오프 손실 없이 넘나듭니다.",
+          en: "- Interactive product builder from Seoul, Yonsei University",
+          ko: "- 서울, 연세대학교 기반 인터랙티브 프로덕트 빌더",
         },
       },
       {
         type: "summary",
-        marker: "03",
+        marker: "bio",
         text: {
-          en: "Bias: ship artifacts early, then iterate from feedback.",
-          ko: "기준점: 설명보다 작동하는 결과물을 먼저 만들고 피드백으로 반복 개선.",
-        },
-      },
-    ],
-  },
-  {
-    id: "stack",
-    command: "/stack-map",
-    description: {
-      en: "Open the stack map by layer",
-      ko: "레이어별 작업 스택 보기",
-    },
-    lines: [
-      {
-        type: "info",
-        marker: "ui",
-        text: {
-          en: "Interface -> React, TypeScript, motion-aware product UI",
-          ko: "Interface -> React, TypeScript, 모션 중심 제품 UI",
+          en: "- Focus: frontend experience + backend reliability + automation",
+          ko: "- 집중 영역: 프론트 UX + 백엔드 안정성 + 자동화",
         },
       },
       {
-        type: "info",
-        marker: "api",
+        type: "summary",
+        marker: "bio",
         text: {
-          en: "Systems -> FastAPI, APIs, real-time flows, PostgreSQL",
-          ko: "Systems -> FastAPI, API 설계, 실시간 플로우, PostgreSQL",
-        },
-      },
-      {
-        type: "info",
-        marker: "data",
-        text: {
-          en: "Data -> Python automation, crawling, analytics, recommendation",
-          ko: "Data -> Python 자동화, 크롤링, 분석, 추천 로직",
-        },
-      },
-      {
-        type: "output",
-        marker: "note",
-        text: {
-          en: "Strength: connecting layers into one product loop.",
-          ko: "강점: 개별 기술보다 레이어 연결을 통한 제품 루프 구축.",
+          en: "- Bias: ship fast, measure signal, tighten loop",
+          ko: "- 작업 성향: 빠르게 배포하고 신호를 측정해 루프를 개선",
         },
       },
     ],
@@ -183,8 +118,8 @@ const commandData = [
     id: "projects",
     command: "/selected-builds",
     description: {
-      en: "Jump through representative projects",
-      ko: "대표 프로젝트 바로가기",
+      en: "Open representative projects",
+      ko: "대표 프로젝트 열기",
     },
     lines: [
       {
@@ -200,8 +135,8 @@ const commandData = [
         type: "link",
         marker: "git",
         text: {
-          en: "InsideOutDJ -> diary-based recommendation product",
-          ko: "InsideOutDJ -> 일기 기반 추천 서비스",
+          en: "InsideOutDJ -> diary-driven recommendation",
+          ko: "InsideOutDJ -> 일기 기반 추천 제품",
         },
         href: "https://github.com/junho-baek/Ybigta-25th-project-InsideOutDJ",
       },
@@ -209,7 +144,7 @@ const commandData = [
         type: "link",
         marker: "git",
         text: {
-          en: "zoom -> real-time interaction exploration",
+          en: "zoom -> realtime interaction exploration",
           ko: "zoom -> 실시간 인터랙션 실험",
         },
         href: "https://github.com/junho-baek/zoom",
@@ -229,86 +164,47 @@ const commandData = [
     id: "loop",
     command: "/shipping-loop",
     description: {
-      en: "Show the repeatable shipping loop",
-      ko: "반복 가능한 배송 루프 보기",
+      en: "Show repeatable build loop",
+      ko: "반복 가능한 빌드 루프 보기",
     },
     lines: [
       {
         type: "command",
         marker: "loop",
         text: {
-          en: "friction -> prototype -> interface -> api + data -> automation -> iterate",
-          ko: "friction -> prototype -> interface -> api + data -> automation -> iterate",
-        },
-      },
-      {
-        type: "output",
-        marker: "why",
-        text: {
-          en: "Loop quality dominates stack preference.",
-          ko: "스택 선호보다 루프 품질이 결과를 좌우합니다.",
+          en: "friction -> prototype -> ship -> observe -> iterate",
+          ko: "friction -> prototype -> ship -> observe -> iterate",
         },
       },
       {
         type: "summary",
-        marker: "ship",
+        marker: "why",
         text: {
-          en: "Fastest path to signal: run, observe, refine.",
-          ko: "신호를 가장 빨리 얻는 방법: 실행하고 관찰하고 고치기.",
+          en: "speed is not chaos when feedback closes quickly.",
+          ko: "피드백 루프가 짧으면 속도는 혼란이 아니라 경쟁력입니다.",
         },
       },
-    ],
-  },
-  {
-    id: "links",
-    command: "/open-links",
-    description: {
-      en: "Open public surfaces",
-      ko: "공개 채널 열기",
-    },
-    lines: [
       {
-        type: "link",
-        marker: "web",
+        type: "summary",
+        marker: "ops",
         text: {
-          en: "GitHub profile",
-          ko: "GitHub 프로필",
+          en: "clean handoff from UI to API to data automation.",
+          ko: "UI -> API -> 데이터 자동화까지 끊김 없는 핸드오프.",
         },
-        href: "https://github.com/junho-baek",
-      },
-      {
-        type: "link",
-        marker: "web",
-        text: {
-          en: "Repositories tab",
-          ko: "Repositories 탭",
-        },
-        href: "https://github.com/junho-baek?tab=repositories",
-      },
-      {
-        type: "link",
-        marker: "web",
-        text: {
-          en: "Interactive terminal source",
-          ko: "인터랙티브 터미널 소스",
-        },
-        href: "https://github.com/junho-baek/junho-baek/tree/main/site",
       },
     ],
   },
 ];
 
-const glyphFrames = ["(◕‿◕)", "(•ᴗ•)", "(≧◡≦)", "(^‿^)"];
-
 const terminalOutput = document.getElementById("terminal-output");
 const commandBar = document.getElementById("command-bar");
 const commandLabel = document.getElementById("command-label");
 const metricMode = document.getElementById("metric-mode");
+const metricLang = document.getElementById("metric-lang");
 const palette = document.getElementById("palette");
 const paletteList = document.getElementById("palette-list");
 const paletteBackdrop = document.getElementById("palette-backdrop");
 const langToggle = document.getElementById("lang-toggle");
-const glyphFace = document.getElementById("glyph-face");
 const params = new URLSearchParams(window.location.search);
 
 const browserLanguages = navigator.languages && navigator.languages.length > 0 ? navigator.languages : [navigator.language];
@@ -316,15 +212,15 @@ const browserDefault = browserLanguages.some((entry) => String(entry).toLowerCas
 const defaultLanguage = params.get("lang") || localStorage.getItem("terminal-language") || browserDefault;
 
 let language = defaultLanguage === "ko" ? "ko" : "en";
-let activeIndex = Math.max(
-  0,
-  commandData.findIndex((item) => item.id === params.get("cmd") || item.command === params.get("cmd"))
-);
+let activeIndex = commandData.findIndex((item) => item.id === params.get("cmd") || item.command === params.get("cmd"));
+if (activeIndex < 0) {
+  activeIndex = 0;
+}
 let highlightedIndex = activeIndex;
 let typingToken = 0;
 
 function pick(value) {
-  if (typeof value === "string") {
+  if (typeof value === "string" || Array.isArray(value)) {
     return value;
   }
   return value[language] ?? value.en;
@@ -335,87 +231,113 @@ function wait(ms) {
 }
 
 function updateQueryState(paletteOpen) {
-  const next = new URLSearchParams(window.location.search);
-  next.set("lang", language);
-  next.set("cmd", commandData[activeIndex].id);
+  const query = new URLSearchParams(window.location.search);
+  query.set("lang", language);
+  query.set("cmd", commandData[activeIndex].id);
   if (paletteOpen) {
-    next.set("palette", "1");
+    query.set("palette", "1");
   } else {
-    next.delete("palette");
+    query.delete("palette");
   }
-  window.history.replaceState(null, "", `${window.location.pathname}?${next.toString()}`);
+  window.history.replaceState(null, "", `${window.location.pathname}?${query.toString()}`);
 }
 
 function applyTranslations() {
   document.documentElement.lang = translations[language].htmlLang;
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
     if (translations[language][key]) {
-      element.textContent = translations[language][key];
+      node.textContent = translations[language][key];
     }
   });
-
   langToggle.textContent = language === "en" ? "KO" : "EN";
+  metricLang.textContent = language.toUpperCase();
 }
 
-function buildLine(line, typing = false) {
+function makeLineRow(lineType, marker) {
   const row = document.createElement("div");
-  row.className = `terminal-line line-enter type-${line.type}`;
+  row.className = `terminal-line type-${lineType} line-enter`;
 
-  const marker = document.createElement("span");
-  marker.className = "line-marker";
-  marker.textContent = line.marker;
+  const markerNode = document.createElement("span");
+  markerNode.className = "line-marker";
+  markerNode.textContent = marker;
 
-  const value = document.createElement("span");
-  value.className = "line-value";
+  const valueNode = document.createElement("span");
+  valueNode.className = "line-value";
 
-  let target = value;
-  if (line.href) {
-    const anchor = document.createElement("a");
-    anchor.href = line.href;
-    anchor.target = "_blank";
-    anchor.rel = "noreferrer";
-    value.appendChild(anchor);
-    target = anchor;
-  }
-
-  if (typing) {
-    target.classList.add("typing");
-  }
-
-  row.appendChild(marker);
-  row.appendChild(value);
-  return { row, target };
+  row.appendChild(markerNode);
+  row.appendChild(valueNode);
+  return {row, valueNode};
 }
 
-async function typeText(target, text, token) {
+async function typeText(node, text, token) {
   let output = "";
   for (let i = 0; i < text.length; i += 1) {
     if (typingToken !== token) {
       return false;
     }
-
     output += text[i];
-    target.textContent = output;
+    node.textContent = output;
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
-
     const char = text[i];
-    let delay = 18;
+    let delay = 14;
     if (char === " ") {
       delay = 8;
-    } else if (/[,.!?]/.test(char)) {
-      delay = 30;
-    } else if (char === "\n") {
-      delay = 48;
+    }
+    if (/[,.!?]/.test(char)) {
+      delay = 24;
+    }
+    if (char === "\n") {
+      delay = 36;
     }
     await wait(delay);
   }
-
   return true;
 }
 
-function updateCommandSummary(command) {
+async function appendBanner(lines, token) {
+  const row = makeLineRow("banner", "fig");
+  const block = document.createElement("div");
+  block.className = "banner-block";
+  row.valueNode.appendChild(block);
+  terminalOutput.appendChild(row.row);
+
+  for (const bannerLine of lines) {
+    if (typingToken !== token) {
+      return;
+    }
+    const line = document.createElement("div");
+    line.className = "banner-line line-enter";
+    line.textContent = bannerLine;
+    block.appendChild(line);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    await wait(52);
+  }
+}
+
+async function appendRegularLine(line, token) {
+  const row = makeLineRow(line.type, line.marker);
+  terminalOutput.appendChild(row.row);
+  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+  if (line.href) {
+    const anchor = document.createElement("a");
+    anchor.href = line.href;
+    anchor.target = "_blank";
+    anchor.rel = "noreferrer";
+    anchor.textContent = pick(line.text);
+    row.valueNode.appendChild(anchor);
+    await wait(90);
+    return;
+  }
+
+  row.valueNode.classList.add("typing");
+  await typeText(row.valueNode, pick(line.text), token);
+  row.valueNode.classList.remove("typing");
+  await wait(120);
+}
+
+function syncCommandSummary(command) {
   commandLabel.textContent = `${command.command} ${pick(command.description)}`;
   metricMode.textContent = command.command;
 }
@@ -423,74 +345,52 @@ function updateCommandSummary(command) {
 async function renderCommand(index) {
   typingToken += 1;
   const token = typingToken;
-  const command = commandData[index];
 
   activeIndex = index;
-  updateCommandSummary(command);
+  highlightedIndex = index;
+  const command = commandData[index];
+  syncCommandSummary(command);
   syncPalette();
   updateQueryState(!palette.classList.contains("hidden"));
-
   terminalOutput.innerHTML = "";
 
-  const intro = buildLine(
-    {
-      type: "command",
-      marker: "user",
-      text: `junho@builder:~$ ${command.command}`,
-    },
-    true
-  );
-  terminalOutput.appendChild(intro.row);
-  terminalOutput.scrollTop = terminalOutput.scrollHeight;
-
-  await typeText(intro.target, `junho@builder:~$ ${command.command}`, token);
-  intro.target.classList.remove("typing");
-  await wait(130);
-
-  if (typingToken !== token) {
-    return;
-  }
+  const prompt = makeLineRow("command", "user");
+  prompt.valueNode.classList.add("typing");
+  terminalOutput.appendChild(prompt.row);
+  await typeText(prompt.valueNode, `junho@builder:~$ ${command.command}`, token);
+  prompt.valueNode.classList.remove("typing");
+  await wait(120);
 
   for (const line of command.lines) {
     if (typingToken !== token) {
       return;
     }
-
-    const item = buildLine(line, true);
-    terminalOutput.appendChild(item.row);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    await typeText(item.target, pick(line.text), token);
-    item.target.classList.remove("typing");
-    await wait(line.type === "summary" ? 220 : 140);
+    if (line.type === "banner") {
+      await appendBanner(pick(line.text), token);
+      continue;
+    }
+    await appendRegularLine(line, token);
   }
 
   if (typingToken !== token) {
     return;
   }
 
-  const next = buildLine(
-    {
-      type: "system",
-      marker: "hint",
-      text: translations[language].nextPrompt,
-    },
-    false
-  );
-  next.target.textContent = translations[language].nextPrompt;
-  terminalOutput.appendChild(next.row);
+  const hint = makeLineRow("info", "next");
+  hint.valueNode.textContent = translations[language].nextPrompt;
+  terminalOutput.appendChild(hint.row);
   terminalOutput.scrollTop = terminalOutput.scrollHeight;
 }
 
 function syncPalette() {
   paletteList.innerHTML = "";
-
-  commandData.forEach((item, index) => {
+  commandData.forEach((command, index) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `palette-item${index === highlightedIndex ? " active" : ""}`;
     button.innerHTML = `
-      <span class="palette-command">${item.command}</span>
-      <span class="palette-description">${pick(item.description)}</span>
+      <span class="palette-command">${command.command}</span>
+      <span class="palette-description">${pick(command.description)}</span>
     `;
     button.addEventListener("click", () => {
       closePalette();
@@ -522,35 +422,24 @@ function toggleLanguage() {
   applyTranslations();
   syncPalette();
   renderCommand(activeIndex);
-  updateQueryState(!palette.classList.contains("hidden"));
-}
-
-function startGlyphAnimation() {
-  let frame = 0;
-  window.setInterval(() => {
-    frame = (frame + 1) % glyphFrames.length;
-    glyphFace.textContent = glyphFrames[frame];
-  }, 620);
 }
 
 function bindCursorLight() {
   const root = document.documentElement;
-  const setPosition = (x, y, visible = "1") => {
+  const update = (x, y, alpha = "1") => {
     root.style.setProperty("--cursor-x", `${x}px`);
     root.style.setProperty("--cursor-y", `${y}px`);
-    root.style.setProperty("--cursor-visible", visible);
+    root.style.setProperty("--cursor-alpha", alpha);
   };
 
   window.addEventListener("pointermove", (event) => {
-    setPosition(event.clientX, event.clientY, "1");
+    update(event.clientX, event.clientY, "1");
   });
-
   window.addEventListener("pointerleave", () => {
-    root.style.setProperty("--cursor-visible", "0");
+    root.style.setProperty("--cursor-alpha", "0");
   });
-
   window.addEventListener("pointerenter", () => {
-    root.style.setProperty("--cursor-visible", "1");
+    root.style.setProperty("--cursor-alpha", "1");
   });
 }
 
@@ -566,7 +455,6 @@ langToggle.addEventListener("click", toggleLanguage);
 
 window.addEventListener("keydown", (event) => {
   const paletteOpen = !palette.classList.contains("hidden");
-
   if (event.key === "Escape" && paletteOpen) {
     closePalette();
     return;
@@ -595,17 +483,15 @@ window.addEventListener("keydown", (event) => {
 
   if (event.key === "Enter") {
     event.preventDefault();
-    const picked = highlightedIndex;
+    const selected = highlightedIndex;
     closePalette();
-    renderCommand(picked);
+    renderCommand(selected);
   }
 });
 
 applyTranslations();
 bindCursorLight();
-startGlyphAnimation();
 renderCommand(activeIndex);
-
 if (params.get("palette") === "1") {
   openPalette();
 }
