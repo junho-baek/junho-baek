@@ -13,9 +13,18 @@
   <a href="https://github.com/junho-baek?tab=repositories">Explore repositories</a>
 </p>
 
+<p align="center">
+  <img src="./assets/capability-hero.svg" alt="A 3D capability map showing Interface, Systems, Data, and Delivery connected around Baek Junho" width="100%" />
+</p>
+
 ## Capability Prism
 
-Drag to rotate the object. It is a simple capability block: interface, systems, data, and delivery.
+GitHub's built-in 3D viewer is limited, so the main visual stays static and clean. If you want the interactive version, open the block below and rotate it.
+
+<details>
+<summary><strong>Open the interactive capability block</strong></summary>
+
+Drag to rotate the object. It represents interface, systems, data, and delivery.
 
 ```stl
 solid capability_block
@@ -105,6 +114,8 @@ solid capability_block
   endfacet
 endsolid capability_block
 ```
+
+</details>
 
 | Face | Capability |
 | --- | --- |
