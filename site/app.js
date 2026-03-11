@@ -16,6 +16,20 @@ const JUNHO_BAEK_BANNER = [
   "  \\____/ \\____/|_| \\_|_|  |_|\\____/  |____/_/    \\_\\______|_|\\_\\",
 ];
 
+const WHO_IS_BANNER_COMPACT = [
+  " __      ___  _  ___    ___ ___ ",
+  " \\ \\    / / || |/ _ \\  |_ _/ __|",
+  "  \\ \\/\\/ /| __ | (_) |  | |\\__ \\",
+  "   \\_/\\_/ |_||_|\\___/  |___|___/",
+];
+
+const JUNHO_BAEK_BANNER_COMPACT = [
+  "     _ _   _ _  _ _  _  ___    ___   _   ___ _  __",
+  "  _ | | | | | \\| | || |/ _ \\  | _ ) /_\\ | __| |/ /",
+  " | || | |_| | .` | __ | (_) | | _ \\/ _ \\| _|| ' < ",
+  "  \\__/ \\___/|_|\\_|_||_|\\___/  |___/_/ \\_\\___|_|\\_\\",
+];
+
 const translations = {
   en: {
     htmlLang: "en",
@@ -57,14 +71,6 @@ const commandData = [
     },
     lines: [
       {
-        type: "info",
-        marker: "[0]",
-        text: {
-          en: "/home",
-          ko: "/home",
-        },
-      },
-      {
         type: "command",
         marker: "user",
         text: {
@@ -94,14 +100,6 @@ const commandData = [
         text: {
           en: "- Interactive product builder from Seoul, Yonsei University",
           ko: "- 서울, 연세대학교 기반 인터랙티브 프로덕트 빌더",
-        },
-      },
-      {
-        type: "summary",
-        marker: "bio",
-        text: {
-          en: "- Focus: frontend experience + backend reliability + automation",
-          ko: "- 집중 영역: 프론트 UX + 백엔드 안정성 + 자동화",
         },
       },
       {
@@ -296,13 +294,17 @@ async function typeText(node, text, token) {
 }
 
 async function appendBanner(lines, token) {
+  const responsiveLines =
+    window.innerWidth <= 640
+      ? [...WHO_IS_BANNER_COMPACT, "", ...JUNHO_BAEK_BANNER_COMPACT]
+      : lines;
   const row = makeLineRow("banner", "fig");
   const block = document.createElement("div");
   block.className = "banner-block";
   row.valueNode.appendChild(block);
   terminalOutput.appendChild(row.row);
 
-  for (const bannerLine of lines) {
+  for (const bannerLine of responsiveLines) {
     if (typingToken !== token) {
       return;
     }
@@ -376,10 +378,12 @@ async function renderCommand(index) {
     return;
   }
 
-  const hint = makeLineRow("info", "next");
-  hint.valueNode.textContent = translations[language].nextPrompt;
-  terminalOutput.appendChild(hint.row);
-  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  if (window.innerWidth > 640) {
+    const hint = makeLineRow("info", "next");
+    hint.valueNode.textContent = translations[language].nextPrompt;
+    terminalOutput.appendChild(hint.row);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
 }
 
 function syncPalette() {

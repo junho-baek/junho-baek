@@ -217,9 +217,15 @@ button {
 .terminal-output {
   flex: 1;
   min-height: 0;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 18px 22px 24px;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+}
+
+.terminal-output::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .terminal-line {
@@ -297,13 +303,13 @@ button {
 }
 
 .banner-block {
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 .banner-line {
   color: var(--accent);
   white-space: pre;
-  font-size: clamp(8px, 0.98vw, 14px);
+  font-size: clamp(7px, 0.86vw, 12px);
   line-height: 1.08;
   letter-spacing: 0.01em;
   text-shadow: 2px 2px 0 rgba(255, 96, 60, 0.2);
@@ -491,7 +497,7 @@ button {
   }
 
   .banner-line {
-    font-size: clamp(7px, 1.7vw, 11px);
+    font-size: clamp(5px, 1.45vw, 8px);
   }
 
   .palette-item {
