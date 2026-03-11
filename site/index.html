@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baek Junho Terminal</title>
+    <meta
+      name="description"
+      content="Interactive terminal profile for Baek Junho, built from a real Codex session."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="titlebar">
+        <div class="traffic">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="title">baekjunho.codex.session</div>
+        <a class="title-link" href="https://github.com/junho-baek" target="_blank" rel="noreferrer">
+          github
+        </a>
+      </header>
+
+      <main class="viewport">
+        <section class="intro">
+          <p class="eyebrow">Interactive builder log</p>
+          <h1>Codex-backed terminal profile for Baek Junho</h1>
+          <p class="lede">
+            Click the command bar below. Each mode replays a different slice of the way I build:
+            product UI, systems, data, and shipping loops.
+          </p>
+        </section>
+
+        <section class="terminal-frame">
+          <div class="terminal-head">
+            <span>ssh junho@builder-node</span>
+            <span class="status">connected</span>
+          </div>
+
+          <div id="terminal-output" class="terminal-output" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer class="command-bar-wrap">
+        <div class="metrics">
+          <span>MODE: <strong id="metric-mode">/boot-codex</strong></span>
+          <span>STACK: <strong>HTML · CSS · JS</strong></span>
+          <span>SOURCE: <strong>real codex exec log</strong></span>
+        </div>
+
+        <button id="command-bar" class="command-bar" type="button" aria-expanded="false">
+          <span class="command-prompt">&gt;</span>
+          <span id="command-label" class="command-label">Click to open command modes</span>
+          <span class="command-run">run</span>
+        </button>
+      </footer>
+    </div>
+
+    <div id="palette-backdrop" class="palette-backdrop hidden"></div>
+    <section id="palette" class="palette hidden" aria-label="Command palette">
+      <div class="palette-head">
+        <span>Select command</span>
+        <span>click or use arrow keys + enter</span>
+      </div>
+      <div id="palette-list" class="palette-list"></div>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

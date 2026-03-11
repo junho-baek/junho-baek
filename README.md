@@ -11,6 +11,8 @@
 
 <p align="center">
   <a href="https://github.com/junho-baek?tab=repositories">Explore repositories</a>
+  ·
+  <a href="https://junho-baek.github.io/junho-baek/">Open interactive terminal</a>
 </p>
 
 <p align="center">
