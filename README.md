@@ -17,112 +17,48 @@
   <img src="./assets/capability-hero.svg" alt="A 3D capability map showing Interface, Systems, Data, and Delivery connected around Baek Junho" width="100%" />
 </p>
 
-## Capability Prism
-
-GitHub's built-in 3D viewer is limited, so the main visual stays static and clean. If you want the interactive version, open the block below and rotate it.
+## Launch Build Console
 
 <details>
-<summary><strong>Open the interactive capability block</strong></summary>
+<summary><strong>Open console</strong> · pick a mode</summary>
 
-Drag to rotate the object. It represents interface, systems, data, and delivery.
+<details>
+<summary><strong>Interface Mode</strong> · React, TypeScript, motion-driven UI</summary>
 
-```stl
-solid capability_block
-  facet normal 0 0 1
-    outer loop
-      vertex -1.0 -1.0 1.0
-      vertex 1.0 -1.0 1.0
-      vertex 1.0 1.0 1.0
-    endloop
-  endfacet
-  facet normal 0 0 1
-    outer loop
-      vertex -1.0 -1.0 1.0
-      vertex 1.0 1.0 1.0
-      vertex -1.0 1.0 1.0
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex -1.0 -1.0 -1.0
-      vertex 1.0 1.0 -1.0
-      vertex 1.0 -1.0 -1.0
-    endloop
-  endfacet
-  facet normal 0 0 -1
-    outer loop
-      vertex -1.0 -1.0 -1.0
-      vertex -1.0 1.0 -1.0
-      vertex 1.0 1.0 -1.0
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex -1.0 1.0 -1.0
-      vertex -1.0 1.0 1.0
-      vertex 1.0 1.0 1.0
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex -1.0 1.0 -1.0
-      vertex 1.0 1.0 1.0
-      vertex 1.0 1.0 -1.0
-    endloop
-  endfacet
-  facet normal 0 -1 0
-    outer loop
-      vertex -1.0 -1.0 -1.0
-      vertex 1.0 -1.0 1.0
-      vertex -1.0 -1.0 1.0
-    endloop
-  endfacet
-  facet normal 0 -1 0
-    outer loop
-      vertex -1.0 -1.0 -1.0
-      vertex 1.0 -1.0 -1.0
-      vertex 1.0 -1.0 1.0
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 1.0 -1.0 -1.0
-      vertex 1.0 1.0 1.0
-      vertex 1.0 -1.0 1.0
-    endloop
-  endfacet
-  facet normal 1 0 0
-    outer loop
-      vertex 1.0 -1.0 -1.0
-      vertex 1.0 1.0 -1.0
-      vertex 1.0 1.0 1.0
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex -1.0 -1.0 -1.0
-      vertex -1.0 -1.0 1.0
-      vertex -1.0 1.0 1.0
-    endloop
-  endfacet
-  facet normal -1 0 0
-    outer loop
-      vertex -1.0 -1.0 -1.0
-      vertex -1.0 1.0 1.0
-      vertex -1.0 1.0 -1.0
-    endloop
-  endfacet
-endsolid capability_block
-```
+Build surfaces that feel responsive and readable.
+
+Repos: [MomentumClone](https://github.com/junho-baek/MomentumClone), [zoom](https://github.com/junho-baek/zoom), [react_study](https://github.com/junho-baek/react_study)
 
 </details>
 
-| Face | Capability |
-| --- | --- |
-| Interface | React, TypeScript, interaction-focused UI, frontend experiments |
-| Systems | FastAPI, APIs, real-time communication, PostgreSQL-backed services |
-| Data | Python automation, crawling, analytics, recommendation logic |
-| Delivery | Fast prototyping, iteration loops, turning studies into working products |
+<details>
+<summary><strong>Systems Mode</strong> · FastAPI, APIs, real-time flows</summary>
+
+Connect product ideas to backend flows that can keep up.
+
+Repos: [24-2BackendStudy](https://github.com/junho-baek/24-2BackendStudy), [AutoHRAnalytics](https://github.com/junho-baek/AutoHRAnalytics), [remixstudy](https://github.com/junho-baek/remixstudy)
+
+</details>
+
+<details>
+<summary><strong>Data Mode</strong> · Python, crawling, analytics</summary>
+
+Collect signals, automate work, and test data-driven product ideas.
+
+Repos: [Crawling-cheatsheet](https://github.com/junho-baek/Crawling-cheatsheet), [SQL_DB_Study](https://github.com/junho-baek/SQL_DB_Study), [InsideOutDJ](https://github.com/junho-baek/Ybigta-25th-project-InsideOutDJ)
+
+</details>
+
+<details>
+<summary><strong>Delivery Mode</strong> · prototype, ship, iterate</summary>
+
+Turn studies and experiments into working builds quickly.
+
+Repos: [AutoHRAnalytics](https://github.com/junho-baek/AutoHRAnalytics), [zoom](https://github.com/junho-baek/zoom), [remixstudy](https://github.com/junho-baek/remixstudy)
+
+</details>
+
+</details>
 
 ## Selected Builds
 
@@ -144,44 +80,6 @@ flowchart TD
     E --> F["Iterate"]
     F --> B
 ```
-
-## Capability Notes
-
-<details>
-<summary><strong>Interface</strong></summary>
-
-I care about how a product feels in motion: layout, feedback, rhythm, and the small interactions that make an interface usable.
-
-Relevant repos: [MomentumClone](https://github.com/junho-baek/MomentumClone), [zoom](https://github.com/junho-baek/zoom), [react_study](https://github.com/junho-baek/react_study)
-
-</details>
-
-<details>
-<summary><strong>Systems</strong></summary>
-
-I like connecting interface ideas to reliable backend flows with clear data boundaries.
-
-Relevant repos: [24-2BackendStudy](https://github.com/junho-baek/24-2BackendStudy), [AutoHRAnalytics](https://github.com/junho-baek/AutoHRAnalytics), [remixstudy](https://github.com/junho-baek/remixstudy)
-
-</details>
-
-<details>
-<summary><strong>Data</strong></summary>
-
-I use Python and SQL to collect signals, automate routines, and test recommendation or analytics ideas.
-
-Relevant repos: [Crawling-cheatsheet](https://github.com/junho-baek/Crawling-cheatsheet), [SQL_DB_Study](https://github.com/junho-baek/SQL_DB_Study), [InsideOutDJ](https://github.com/junho-baek/Ybigta-25th-project-InsideOutDJ)
-
-</details>
-
-<details>
-<summary><strong>Delivery</strong></summary>
-
-A lot of my work starts as a clone, study, or experiment and gets pushed toward something usable.
-
-Relevant repos: [MomentumClone](https://github.com/junho-baek/MomentumClone), [zoom](https://github.com/junho-baek/zoom), [AutoHRAnalytics](https://github.com/junho-baek/AutoHRAnalytics)
-
-</details>
 
 ## Activity Snapshot
 
