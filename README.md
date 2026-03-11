@@ -15,39 +15,95 @@
 
 ## Capability Prism
 
-Rotate the prism. Each face maps to the way I usually work across products.
+Drag to rotate the object. It is a simple capability block: interface, systems, data, and delivery.
 
 ```stl
-solid capability_prism
-  facet normal 0.577 -0.577 -0.577
+solid capability_block
+  facet normal 0 0 1
     outer loop
-      vertex 1.0 1.0 1.0
       vertex -1.0 -1.0 1.0
+      vertex 1.0 -1.0 1.0
+      vertex 1.0 1.0 1.0
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -1.0 -1.0 1.0
+      vertex 1.0 1.0 1.0
+      vertex -1.0 1.0 1.0
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -1.0 -1.0 -1.0
+      vertex 1.0 1.0 -1.0
+      vertex 1.0 -1.0 -1.0
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -1.0 -1.0 -1.0
+      vertex -1.0 1.0 -1.0
+      vertex 1.0 1.0 -1.0
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -1.0 1.0 -1.0
+      vertex -1.0 1.0 1.0
+      vertex 1.0 1.0 1.0
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -1.0 1.0 -1.0
+      vertex 1.0 1.0 1.0
+      vertex 1.0 1.0 -1.0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -1.0 -1.0 -1.0
+      vertex 1.0 -1.0 1.0
+      vertex -1.0 -1.0 1.0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -1.0 -1.0 -1.0
+      vertex 1.0 -1.0 -1.0
+      vertex 1.0 -1.0 1.0
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 1.0 -1.0 -1.0
+      vertex 1.0 1.0 1.0
+      vertex 1.0 -1.0 1.0
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 1.0 -1.0 -1.0
+      vertex 1.0 1.0 -1.0
+      vertex 1.0 1.0 1.0
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -1.0 -1.0 -1.0
+      vertex -1.0 -1.0 1.0
+      vertex -1.0 1.0 1.0
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -1.0 -1.0 -1.0
+      vertex -1.0 1.0 1.0
       vertex -1.0 1.0 -1.0
     endloop
   endfacet
-  facet normal -0.577 0.577 -0.577
-    outer loop
-      vertex 1.0 1.0 1.0
-      vertex 1.0 -1.0 -1.0
-      vertex -1.0 -1.0 1.0
-    endloop
-  endfacet
-  facet normal -0.577 0.577 0.577
-    outer loop
-      vertex 1.0 1.0 1.0
-      vertex -1.0 1.0 -1.0
-      vertex 1.0 -1.0 -1.0
-    endloop
-  endfacet
-  facet normal 0.577 0.577 0.577
-    outer loop
-      vertex -1.0 -1.0 1.0
-      vertex 1.0 -1.0 -1.0
-      vertex -1.0 1.0 -1.0
-    endloop
-  endfacet
-endsolid capability_prism
+endsolid capability_block
 ```
 
 | Face | Capability |
@@ -69,12 +125,12 @@ endsolid capability_prism
 ## How I Build
 
 ```mermaid
-flowchart LR
-    A["Observe the friction"] --> B["Prototype the interaction"]
-    B --> C["Shape the product surface"]
-    C --> D["Build the API and data layer"]
-    D --> E["Automate repetitive work"]
-    E --> F["Measure, learn, iterate"]
+flowchart TD
+    A["Friction"] --> B["Prototype"]
+    B --> C["Interface"]
+    C --> D["API + Data"]
+    D --> E["Automation"]
+    E --> F["Iterate"]
     F --> B
 ```
 
