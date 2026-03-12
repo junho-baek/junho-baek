@@ -287,7 +287,8 @@ button {
   border: 1px solid rgba(142, 203, 255, 0.5);
   background: rgba(94, 169, 255, 0.1);
   color: #cde6ff;
-  padding: 9px 12px;
+  line-height: 1.52;
+  padding: 10px 12px;
 }
 
 .type-link .line-marker {
@@ -305,18 +306,62 @@ button {
 }
 
 .banner-block {
+  position: relative;
   overflow: hidden;
+  isolation: isolate;
+  padding: 2px 0 4px;
+  --banner-x: 50%;
+  --banner-y: 50%;
+  --banner-shift: 0px;
+}
+
+.banner-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(142, 203, 255, 0.08) 46%, transparent 100%),
+    radial-gradient(circle at var(--banner-x) var(--banner-y), rgba(94, 169, 255, 0.2), transparent 42%);
+  mix-blend-mode: screen;
+  animation: banner-scan 3.8s linear infinite;
+  z-index: 0;
+}
+
+.banner-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0px,
+    rgba(255, 255, 255, 0) 1px
+  );
+  background-size: 100% 3px;
+  opacity: 0.1;
+  z-index: 0;
 }
 
 .banner-line {
+  position: relative;
+  z-index: 1;
   color: var(--banner-blue);
   white-space: pre;
-  font-size: clamp(8px, 0.95vw, 13px);
-  line-height: 1.08;
+  font-size: var(--banner-font-size, 13px);
+  line-height: 1.03;
+  font-weight: 700;
   letter-spacing: 0.02em;
+  transform: translateX(calc(var(--banner-shift) * var(--line-depth, 1) * 0.15));
+  transition: transform 120ms ease;
   text-shadow:
-    1px 0 0 rgba(94, 169, 255, 0.55),
-    0 0 18px rgba(94, 169, 255, 0.28);
+    1px 0 0 color-mix(in srgb, var(--banner-blue-strong) 70%, transparent),
+    0 0 14px color-mix(in srgb, var(--banner-blue-strong) 32%, transparent),
+    0 0 28px color-mix(in srgb, var(--banner-blue-strong) 20%, transparent);
+}
+
+.banner-burst .banner-line {
+  animation: banner-jolt 220ms steps(2) 1;
 }
 
 .typing::after {
@@ -486,6 +531,36 @@ button {
   }
 }
 
+@keyframes banner-scan {
+  0% {
+    transform: translateY(-104%);
+  }
+  100% {
+    transform: translateY(104%);
+  }
+}
+
+@keyframes banner-jolt {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 840px) {
   .viewport {
     padding-bottom: 130px;
@@ -501,7 +576,7 @@ button {
   }
 
   .banner-line {
-    font-size: clamp(6px, 1.6vw, 9px);
+    font-size: var(--banner-font-size, 9px);
   }
 
   .palette-item {

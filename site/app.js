@@ -1,25 +1,32 @@
 const WHO_IS_BANNER = [
-  "_ _ _ _  _ ____    _ ____ ",
-  "| | | |__| |  |    | [__  ",
-  "|_|_| |  | |__|    | ___] ",
+  "██╗    ██╗██╗  ██╗ ██████╗     ██╗███████╗",
+  "██║    ██║██║  ██║██╔═══██╗    ██║██╔════╝",
+  "██║ █╗ ██║███████║██║   ██║    ██║███████╗",
+  "██║███╗██║██╔══██║██║   ██║    ██║╚════██║",
+  "╚███╔███╔╝██║  ██║╚██████╔╝    ██║███████║",
+  " ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝     ╚═╝╚══════╝",
 ];
 
 const JUNHO_BAEK_BANNER = [
-  " _ _  _ _  _ _  _ ____    ___  ____ ____ _  _ __.",
-  " | |  | |\\ | |__| |  | __ |__] |__| |___ |_/   _]",
-  "_| |__| | \\| |  | |__|    |__] |  | |___ | \\_  . ",
+  "     ██╗██╗   ██╗███╗   ██╗██╗  ██╗ ██████╗     ██████╗  █████╗ ███████╗██╗  ██╗",
+  "     ██║██║   ██║████╗  ██║██║  ██║██╔═══██╗    ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝",
+  "     ██║██║   ██║██╔██╗ ██║███████║██║   ██║    ██████╔╝███████║█████╗  █████╔╝ ",
+  "██   ██║██║   ██║██║╚██╗██║██╔══██║██║   ██║    ██╔══██╗██╔══██║██╔══╝  ██╔═██╗ ",
+  "╚█████╔╝╚██████╔╝██║ ╚████║██║  ██║╚██████╔╝    ██████╔╝██║  ██║███████╗██║  ██╗",
+  " ╚════╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝     ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝",
 ];
 
 const WHO_IS_BANNER_COMPACT = [
-  "             _    ___  __ ",
-  " \\    / |_| / \\    |  (_  ",
-  "  \\/\\/  | | \\_/   _|_ __) ",
+  " __      ___  _  ___    ___ ___ ",
+  " \\ \\    / / || |/ _ \\  |_ _/ __|",
+  "  \\ \\/\\/ /| __ | (_) |  | |\\__ \\",
+  "   \\_/\\_/ |_||_|\\___/  |___|___/",
 ];
 
 const JUNHO_BAEK_BANNER_COMPACT = [
-  "                   _      _        _    _  ",
-  "   | | | |\\ | |_| / \\ __ |_)  /\\  |_ |/  ) ",
-  " \\_| |_| | \\| | | \\_/    |_) /--\\ |_ |\\ o  ",
+  " _ _  _ _  _ _  _ ____    ___  ____ ____ _  _ __.",
+  " | |  | |\\ | |__| |  | __ |__] |__| |___ |_/   _]",
+  "_| |__| | \\| |  | |__|    |__] |  | |___ | \\_  . ",
 ];
 
 const translations = {
@@ -208,6 +215,7 @@ if (activeIndex < 0) {
 }
 let highlightedIndex = activeIndex;
 let typingToken = 0;
+let activeBannerState = null;
 
 function pick(value) {
   if (typeof value === "string" || Array.isArray(value)) {
@@ -296,17 +304,61 @@ async function appendBanner(lines, token) {
   row.valueNode.appendChild(block);
   terminalOutput.appendChild(row.row);
 
-  for (const bannerLine of responsiveLines) {
+  for (const [index, bannerLine] of responsiveLines.entries()) {
     if (typingToken !== token) {
       return;
     }
     const line = document.createElement("div");
     line.className = "banner-line line-enter";
+    line.style.setProperty("--line-depth", String((index % 5) + 1));
     line.textContent = bannerLine;
     block.appendChild(line);
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
     await wait(52);
   }
+
+  wireBannerEffects(block, responsiveLines);
+}
+
+function fitBannerBlock(block, lines) {
+  const maxChars = lines.reduce((max, line) => Math.max(max, line.length), 0) || 1;
+  const availableWidth = Math.max(260, block.clientWidth - 8);
+  const unit = availableWidth / (maxChars * 0.62);
+  const minSize = window.innerWidth <= 640 ? 7 : 12;
+  const maxSize = window.innerWidth <= 640 ? 12 : 23;
+  const fitted = Math.min(maxSize, Math.max(minSize, unit));
+  block.style.setProperty("--banner-font-size", `${fitted}px`);
+}
+
+function wireBannerEffects(block, lines) {
+  fitBannerBlock(block, lines);
+  activeBannerState = {block, lines};
+
+  block.addEventListener("pointermove", (event) => {
+    const rect = block.getBoundingClientRect();
+    if (!rect.width || !rect.height) {
+      return;
+    }
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    const shift = ((x - 50) / 50) * 2.8;
+    block.style.setProperty("--banner-x", `${x}%`);
+    block.style.setProperty("--banner-y", `${y}%`);
+    block.style.setProperty("--banner-shift", `${shift.toFixed(2)}px`);
+  });
+
+  block.addEventListener("pointerleave", () => {
+    block.style.setProperty("--banner-x", "50%");
+    block.style.setProperty("--banner-y", "50%");
+    block.style.setProperty("--banner-shift", "0px");
+  });
+
+  block.addEventListener("click", () => {
+    block.classList.remove("banner-burst");
+    // Retrigger the burst animation on every click.
+    void block.offsetWidth;
+    block.classList.add("banner-burst");
+  });
 }
 
 async function appendRegularLine(line, token) {
@@ -376,6 +428,10 @@ async function renderCommand(index) {
     terminalOutput.appendChild(hint.row);
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
   }
+
+  if (command.id === "who") {
+    terminalOutput.scrollTop = 0;
+  }
 }
 
 function syncPalette() {
@@ -436,6 +492,13 @@ function bindCursorLight() {
   });
   window.addEventListener("pointerenter", () => {
     root.style.setProperty("--cursor-alpha", "1");
+  });
+
+  window.addEventListener("resize", () => {
+    if (!activeBannerState) {
+      return;
+    }
+    fitBannerBlock(activeBannerState.block, activeBannerState.lines);
   });
 }
 
