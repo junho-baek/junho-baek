@@ -269,21 +269,20 @@ async function appendBanner(lines, token) {
   block.className = "banner-block";
   row.valueNode.appendChild(block);
   terminalOutput.appendChild(row.row);
+  wireBannerEffects(block, responsiveLines);
 
   for (const [index, bannerLine] of responsiveLines.entries()) {
     if (typingToken !== token) {
       return;
     }
     const line = document.createElement("div");
-    line.className = "banner-line line-enter";
+    line.className = "banner-line";
     line.style.setProperty("--line-depth", String((index % 5) + 1));
     line.textContent = bannerLine;
     block.appendChild(line);
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
     await wait(52);
   }
-
-  wireBannerEffects(block, responsiveLines);
 }
 
 function fitBannerBlock(block, lines) {
@@ -299,7 +298,6 @@ function fitBannerBlock(block, lines) {
 function wireBannerEffects(block, lines) {
   fitBannerBlock(block, lines);
   activeBannerState = {block, lines};
-  let clickSparkTimer = null;
 
   const sparkle = document.createElement("span");
   sparkle.className = "banner-spark";
@@ -331,32 +329,7 @@ function wireBannerEffects(block, lines) {
     block.style.setProperty("--banner-y", "50%");
     block.style.setProperty("--banner-shift", "0px");
     setSparkPoint(50, 50);
-    if (clickSparkTimer) {
-      clearTimeout(clickSparkTimer);
-      clickSparkTimer = null;
-    }
     block.classList.remove("banner-hover");
-    block.classList.remove("banner-click-spark");
-  });
-
-  block.addEventListener("click", (event) => {
-    const rect = block.getBoundingClientRect();
-    if (rect.width && rect.height) {
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      setSparkPoint(x, y);
-    }
-    block.classList.remove("banner-click-spark");
-    // Retrigger click sparkle on every click.
-    void block.offsetWidth;
-    block.classList.add("banner-click-spark");
-    if (clickSparkTimer) {
-      clearTimeout(clickSparkTimer);
-    }
-    clickSparkTimer = window.setTimeout(() => {
-      block.classList.remove("banner-click-spark");
-      clickSparkTimer = null;
-    }, 420);
   });
 }
 
