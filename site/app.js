@@ -401,9 +401,6 @@ async function renderCommand(index) {
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
   }
 
-  if (command.id === "who") {
-    terminalOutput.scrollTop = 0;
-  }
 }
 
 function syncPalette() {
