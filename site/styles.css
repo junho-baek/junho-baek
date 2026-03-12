@@ -10,6 +10,8 @@
   --text: #d4d7dd;
   --muted: #808590;
   --accent: #f08f6f;
+  --banner-blue: #8ecbff;
+  --banner-blue-strong: #5ea9ff;
   --green: #3ae58f;
   --cyan: #8be9ff;
   --mono: "JetBrains Mono", "Menlo", "Monaco", "Consolas", monospace;
@@ -282,9 +284,9 @@ button {
 }
 
 .type-highlight .line-value {
-  border: 1px solid var(--accent);
-  background: rgba(240, 143, 111, 0.09);
-  color: #ffc9b2;
+  border: 1px solid rgba(142, 203, 255, 0.5);
+  background: rgba(94, 169, 255, 0.1);
+  color: #cde6ff;
   padding: 9px 12px;
 }
 
@@ -299,7 +301,7 @@ button {
 }
 
 .type-banner .line-marker {
-  color: var(--accent);
+  color: var(--banner-blue);
 }
 
 .banner-block {
@@ -307,12 +309,14 @@ button {
 }
 
 .banner-line {
-  color: var(--accent);
+  color: var(--banner-blue);
   white-space: pre;
-  font-size: clamp(7px, 0.86vw, 12px);
+  font-size: clamp(8px, 0.95vw, 13px);
   line-height: 1.08;
-  letter-spacing: 0.01em;
-  text-shadow: 2px 2px 0 rgba(255, 96, 60, 0.2);
+  letter-spacing: 0.02em;
+  text-shadow:
+    1px 0 0 rgba(94, 169, 255, 0.55),
+    0 0 18px rgba(94, 169, 255, 0.28);
 }
 
 .typing::after {
@@ -497,7 +501,7 @@ button {
   }
 
   .banner-line {
-    font-size: clamp(5px, 1.45vw, 8px);
+    font-size: clamp(6px, 1.6vw, 9px);
   }
 
   .palette-item {
