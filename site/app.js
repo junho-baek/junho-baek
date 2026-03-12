@@ -81,8 +81,8 @@ const commandData = [
         type: "highlight",
         marker: "*",
         text: {
-          en: "where interface, systems, and data ship together.",
-          ko: "인터페이스, 시스템, 데이터가 한 루프로 배송되는 곳.",
+          en: "AI Native Product Builder · n8n Workflow Automation Builder.",
+          ko: "AI Native Product Builder · n8n Workflow Automation Builder.",
         },
       },
       {
@@ -97,16 +97,24 @@ const commandData = [
         type: "summary",
         marker: "bio",
         text: {
-          en: "- Interactive product builder from Seoul, Yonsei University",
-          ko: "- 서울, 연세대학교 기반 인터랙티브 프로덕트 빌더",
+          en: "- Full-Stack background planner turning bold ideas into real products",
+          ko: "- 세상을 바꿀 아이디어를 실제 제품으로 구현하는 Full-Stack Background 기획자",
         },
       },
       {
         type: "summary",
         marker: "bio",
         text: {
-          en: "- Bias: ship fast, measure signal, tighten loop",
-          ko: "- 작업 성향: 빠르게 배포하고 신호를 측정해 루프를 개선",
+          en: "- FE/BE/DE/AI Agent loop: plan -> build -> deploy -> measure",
+          ko: "- FE/BE/DE/AI Agent 역량으로 기획 -> 개발 -> 배포 -> 측정 루프를 실행",
+        },
+      },
+      {
+        type: "summary",
+        marker: "bio",
+        text: {
+          en: "- Focused on business impact that solves social problems with AI",
+          ko: "- AI Native 개발 문화로 사회 문제를 해결하는 비즈니스 임팩트에 집중",
         },
       },
     ],
@@ -120,40 +128,68 @@ const commandData = [
     },
     lines: [
       {
-        type: "link",
-        marker: "git",
+        type: "command",
+        marker: "user",
         text: {
-          en: "AutoHRAnalytics -> Notion API, FastAPI, React",
-          ko: "AutoHRAnalytics -> Notion API, FastAPI, React",
+          en: "cat selected_projects.md",
+          ko: "cat selected_projects.md",
         },
-        href: "https://github.com/junho-baek/AutoHRAnalytics",
       },
       {
-        type: "link",
-        marker: "git",
+        type: "summary",
+        marker: "proj",
         text: {
-          en: "InsideOutDJ -> diary-driven recommendation",
-          ko: "InsideOutDJ -> 일기 기반 추천 제품",
+          en: "[Glucofit] Personalized glucose-based diet management app (Industry project)",
+          ko: "[Glucofit] 혈당 데이터 기반 개인화 식단 관리 앱 개선 (산학협력)",
         },
-        href: "https://github.com/junho-baek/Ybigta-25th-project-InsideOutDJ",
       },
       {
-        type: "link",
-        marker: "git",
+        type: "summary",
+        marker: "role",
         text: {
-          en: "zoom -> realtime interaction exploration",
-          ko: "zoom -> 실시간 인터랙션 실험",
+          en: "PM & Lead Developer | React · FastAPI · PostgreSQL · Pandas · AWS",
+          ko: "PM & Lead Developer | React · FastAPI · PostgreSQL · Pandas · AWS",
         },
-        href: "https://github.com/junho-baek/zoom",
       },
       {
-        type: "link",
-        marker: "git",
+        type: "summary",
+        marker: "proj",
         text: {
-          en: "remixstudy -> TypeScript, Supabase, PostgreSQL",
-          ko: "remixstudy -> TypeScript, Supabase, PostgreSQL",
+          en: "[AIDP] In-house data analysis AI Agent (SKT Fellowship)",
+          ko: "[AIDP] 사내 데이터 분석 AI Agent (SKT Fellowship)",
         },
-        href: "https://github.com/junho-baek/remixstudy",
+      },
+      {
+        type: "summary",
+        marker: "role",
+        text: {
+          en: "AI Agent architecture + MCP server | LangGraph · LangChain · Redis · Docker",
+          ko: "AI Agent 설계 + MCP 서버 개발 | LangGraph · LangChain · Redis · Docker",
+        },
+      },
+      {
+        type: "summary",
+        marker: "proj",
+        text: {
+          en: "[DundunAI] Short-form creation and monetization Agent SaaS",
+          ko: "[든든AI] 중장년층 숏폼 제작·수익화 Agent SaaS",
+        },
+      },
+      {
+        type: "summary",
+        marker: "role",
+        text: {
+          en: "Product Owner (planning/design/full-stack) | React · FastAPI · n8n · Supabase",
+          ko: "Product Owner(기획·디자인·풀스택) | React · FastAPI · n8n · Supabase",
+        },
+      },
+      {
+        type: "summary",
+        marker: "impact",
+        text: {
+          en: "impact: AI workflow products that turn social pain points into measurable outcomes",
+          ko: "impact: 사회 문제를 측정 가능한 결과로 전환하는 AI Workflow 제품을 설계·실험·배포",
+        },
       },
     ],
   },
