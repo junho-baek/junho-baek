@@ -190,20 +190,18 @@ button {
 
 .terminal-frame {
   height: 100%;
-  border: 1px solid var(--line-soft);
-  border-radius: 14px;
-  background:
-    radial-gradient(circle at top right, rgba(139, 233, 255, 0.08), transparent 38%),
-    #14171d;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .terminal-head {
   min-height: 54px;
   padding: 0 18px;
-  border-bottom: 1px solid var(--line-soft);
+  border-bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -424,20 +422,15 @@ button {
   right: clamp(8px, 1.6vw, 16px);
   bottom: clamp(8px, 1.6vw, 16px);
   z-index: 10;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(15, 17, 22, 0.88);
-  backdrop-filter: blur(8px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 8px;
-  color: #8f95a3;
-  font-size: 11px;
+  display: none;
 }
 
 .metrics em {
@@ -653,7 +646,7 @@ button {
     left: 6px;
     right: 6px;
     bottom: 6px;
-    padding: 8px;
+    padding: 0;
   }
 
   .metrics {
