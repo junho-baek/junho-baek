@@ -81,8 +81,8 @@ const commandData = [
         type: "highlight",
         marker: "*",
         text: {
-          en: "AI Native Product Builder · n8n Workflow Automation Builder.",
-          ko: "AI Native Product Builder · n8n Workflow Automation Builder.",
+          en: "Hello. I am Junho Baek, an AI-Native product builder focused on social impact.",
+          ko: "안녕하세요. AI Native 개발 문화를 바탕으로 사회 문제 해결에 집중하는 백준호입니다.",
         },
       },
       {
@@ -94,28 +94,109 @@ const commandData = [
         },
       },
       {
-        type: "summary",
-        marker: "bio",
+        type: "section",
+        marker: "▸",
         text: {
-          en: "- Full-Stack background planner turning bold ideas into real products",
-          ko: "- 세상을 바꿀 아이디어를 실제 제품으로 구현하는 Full-Stack Background 기획자",
+          en: "Identity",
+          ko: "정체성",
         },
       },
       {
-        type: "summary",
-        marker: "bio",
+        type: "point",
+        marker: "·",
         text: {
-          en: "- FE/BE/DE/AI Agent loop: plan -> build -> deploy -> measure",
-          ko: "- FE/BE/DE/AI Agent 역량으로 기획 -> 개발 -> 배포 -> 측정 루프를 실행",
+          en: "AI Native Product Builder + n8n Workflow Automation Builder",
+          ko: "AI Native Product Builder + n8n Workflow Automation Builder",
         },
       },
       {
-        type: "summary",
-        marker: "bio",
+        type: "point",
+        marker: "·",
         text: {
-          en: "- Focused on business impact that solves social problems with AI",
-          ko: "- AI Native 개발 문화로 사회 문제를 해결하는 비즈니스 임팩트에 집중",
+          en: "Full-Stack Background planner with FE, BE, DE, and AI Agent execution",
+          ko: "FE/BE/DE/AI Agent 개발 역량을 바탕으로 실현 가능한 기획을 수행하는 Full-Stack Background 기획자",
         },
+      },
+      {
+        type: "section",
+        marker: "▸",
+        text: {
+          en: "How I Work",
+          ko: "문제 해결 방식",
+        },
+      },
+      {
+        type: "point",
+        marker: "·",
+        text: {
+          en: "Improve AI UX to raise user trust and conversion",
+          ko: "AI UX 개선을 통해 사용자 신뢰와 경험 품질을 높입니다.",
+        },
+      },
+      {
+        type: "point",
+        marker: "·",
+        text: {
+          en: "Build AI services that solve practical social pain points",
+          ko: "실질적인 사회 문제를 해결하는 AI 서비스를 기획하고 구현합니다.",
+        },
+      },
+      {
+        type: "point",
+        marker: "·",
+        text: {
+          en: "Automate execution with AI workflow and n8n orchestration",
+          ko: "n8n 기반 AI Workflow 자동화로 실행 속도와 운영 효율을 끌어올립니다.",
+        },
+      },
+      {
+        type: "section",
+        marker: "▸",
+        text: {
+          en: "Core Skills",
+          ko: "핵심 스킬",
+        },
+      },
+      {
+        type: "skill",
+        marker: "skill",
+        text: {
+          en: "Product: Notion · Figma · Business Logic Design",
+          ko: "Product: Notion · Figma · Business Logic Design",
+        },
+      },
+      {
+        type: "skill",
+        marker: "skill",
+        text: {
+          en: "Frontend: React · shadcn/ui · Tailwind CSS",
+          ko: "Frontend: React · shadcn/ui · Tailwind CSS",
+        },
+      },
+      {
+        type: "skill",
+        marker: "skill",
+        text: {
+          en: "Backend/Data: FastAPI · Supabase · PostgreSQL · n8n",
+          ko: "Backend/Data: FastAPI · Supabase · PostgreSQL · n8n",
+        },
+      },
+      {
+        type: "skill",
+        marker: "skill",
+        text: {
+          en: "Infra/Agent: Docker · AWS · LangGraph · LangChain",
+          ko: "Infra/Agent: Docker · AWS · LangGraph · LangChain",
+        },
+      },
+      {
+        type: "link",
+        marker: "doc",
+        text: {
+          en: "open detailed profile document -> /site/docs/profile.html",
+          ko: "자기소개 상세 문서 열기 -> /site/docs/profile.html",
+        },
+        href: "./docs/profile.html",
       },
     ],
   },
@@ -136,7 +217,15 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "section",
+        marker: "▸",
+        text: {
+          en: "Selected Projects",
+          ko: "대표 프로젝트",
+        },
+      },
+      {
+        type: "point",
         marker: "proj",
         text: {
           en: "[Glucofit] Personalized glucose-based diet management app (Industry project)",
@@ -144,7 +233,7 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "skill",
         marker: "role",
         text: {
           en: "PM & Lead Developer | React · FastAPI · PostgreSQL · Pandas · AWS",
@@ -152,7 +241,7 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "point",
         marker: "proj",
         text: {
           en: "[AIDP] In-house data analysis AI Agent (SKT Fellowship)",
@@ -160,7 +249,7 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "skill",
         marker: "role",
         text: {
           en: "AI Agent architecture + MCP server | LangGraph · LangChain · Redis · Docker",
@@ -168,7 +257,7 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "point",
         marker: "proj",
         text: {
           en: "[DundunAI] Short-form creation and monetization Agent SaaS",
@@ -176,7 +265,7 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "skill",
         marker: "role",
         text: {
           en: "Product Owner (planning/design/full-stack) | React · FastAPI · n8n · Supabase",
@@ -184,12 +273,21 @@ const commandData = [
         },
       },
       {
-        type: "summary",
+        type: "point",
         marker: "impact",
         text: {
           en: "impact: AI workflow products that turn social pain points into measurable outcomes",
           ko: "impact: 사회 문제를 측정 가능한 결과로 전환하는 AI Workflow 제품을 설계·실험·배포",
         },
+      },
+      {
+        type: "link",
+        marker: "doc",
+        text: {
+          en: "open project details document -> /site/docs/projects.html",
+          ko: "프로젝트 상세 문서 열기 -> /site/docs/projects.html",
+        },
+        href: "./docs/projects.html",
       },
     ],
   },

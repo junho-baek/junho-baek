@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baek Junho | Project Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #111215;
+        --panel: #151924;
+        --line: #2e3748;
+        --text: #d5d9e2;
+        --muted: #8d95a5;
+        --accent: #f09a6f;
+        --cyan: #8ecbff;
+        --green: #58d8b2;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 28px 16px 56px;
+        background: radial-gradient(circle at 10% 0%, rgba(142,203,255,.14), transparent 44%), var(--bg);
+        color: var(--text);
+        font: 500 15px/1.7 "JetBrains Mono", monospace;
+      }
+      .wrap {
+        width: min(1020px, 100%);
+        margin: 0 auto;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        padding: 24px 22px;
+      }
+      h1, h2, h3 { margin: 0 0 10px; line-height: 1.35; }
+      h1 { color: var(--cyan); font-size: 22px; }
+      h2 { color: var(--accent); font-size: 16px; margin-top: 24px; }
+      h3 { color: var(--green); font-size: 14px; margin-top: 14px; }
+      p { margin: 0 0 8px; }
+      ul { margin: 0; padding-left: 20px; }
+      li { margin: 5px 0; }
+      a { color: var(--cyan); }
+      hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+      .m { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Selected Projects — Detailed Notes</h1>
+      <p>AI Native 제품 관점에서 문제 정의, 자동화, 임팩트를 중심으로 정리한 프로젝트 문서입니다.</p>
+
+      <hr />
+
+      <h2>1) Glucofit (산학협력)</h2>
+      <h3>기획 의도</h3>
+      <p>혈당 데이터 기반 개인화 식단 관리 솔루션을 통해 생활 습관 개선을 돕는 모바일 경험을 설계했습니다.</p>
+      <h3>주요 기능</h3>
+      <ul>
+        <li>혈당 민감도 분석</li>
+        <li>식사 및 운동 추천 알고리즘 피드백 UI</li>
+      </ul>
+      <h3>Role / Tech</h3>
+      <p>PM & Lead Developer | React, FastAPI, PostgreSQL, Pandas, AWS</p>
+
+      <h2>2) AIDP (SKT Fellowship)</h2>
+      <h3>기획 의도</h3>
+      <p>복잡한 사내 데이터 흐름을 대화형 인터페이스로 파악하여 분석 업무의 접근성과 속도를 높였습니다.</p>
+      <h3>주요 기능</h3>
+      <ul>
+        <li>데이터 리니지(Lineage) 추적</li>
+        <li>Context 기반 질의응답 Agent</li>
+      </ul>
+      <h3>Role / Tech</h3>
+      <p>AI Agent 설계 및 MCP 서버 개발 | LangGraph, LangChain, Redis, Docker</p>
+
+      <h2>3) 든든AI (자체 서비스)</h2>
+      <h3>기획 의도</h3>
+      <p>중장년층도 쉽게 숏폼 콘텐츠를 제작하고 수익화할 수 있도록 지원하는 Agent SaaS를 구축했습니다.</p>
+      <h3>주요 기능</h3>
+      <ul>
+        <li>캐릭터+기획 엔진 기반 쇼츠 생성</li>
+        <li>업로드 및 운영 자동화 workflow</li>
+      </ul>
+      <h3>Role / Tech</h3>
+      <p>Product Owner (기획, 디자인, 풀스택 총괄) | React, FastAPI, n8n, Supabase, PostgreSQL</p>
+
+      <h2>Impact Focus</h2>
+      <p>아이디어를 실험 가능한 제품으로 빠르게 전환하고, 운영 데이터를 통해 개선 루프를 반복하는 것을 핵심 원칙으로 둡니다.</p>
+
+      <p class="m">Back to terminal: <a href="../?lang=ko&cmd=projects">projects</a></p>
+    </main>
+  </body>
+</html>

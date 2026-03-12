@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baek Junho | Profile Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #111215;
+        --panel: #151924;
+        --line: #2e3748;
+        --text: #d5d9e2;
+        --muted: #8d95a5;
+        --accent: #f09a6f;
+        --cyan: #8ecbff;
+        --green: #58d8b2;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 28px 16px 56px;
+        background: radial-gradient(circle at 10% 0%, rgba(240,154,111,.14), transparent 40%), var(--bg);
+        color: var(--text);
+        font: 500 15px/1.7 "JetBrains Mono", monospace;
+      }
+      .wrap {
+        width: min(980px, 100%);
+        margin: 0 auto;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        padding: 24px 22px;
+      }
+      h1, h2 { margin: 0 0 10px; line-height: 1.35; }
+      h1 { color: var(--cyan); font-size: 22px; }
+      h2 { color: var(--accent); font-size: 16px; margin-top: 24px; }
+      p { margin: 0 0 10px; }
+      ul { margin: 6px 0 0; padding-left: 20px; }
+      li { margin: 5px 0; }
+      .k { color: var(--green); }
+      .m { color: var(--muted); }
+      a { color: var(--cyan); }
+      hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Baek Junho — Detailed Profile</h1>
+      <p class="k">안녕하세요. AI Native 개발 문화를 기반으로 사회 문제 해결형 제품을 기획·개발하는 백준호입니다.</p>
+      <p>
+        저는 FE, BE, DE, AI Agent 역량을 함께 활용해 <strong>실행 가능한 기획</strong>을 만드는
+        Full-Stack Background 기획자입니다.
+      </p>
+
+      <hr />
+
+      <h2>Self Introduction</h2>
+      <ul>
+        <li><strong>AI UX</strong> 개선으로 사용자 경험을 높이고 실제 사용 전환을 만듭니다.</li>
+        <li><strong>AI Service</strong>로 생활 밀착형 사회 문제를 해결하는 제품을 설계합니다.</li>
+        <li><strong>AI Workflow</strong>와 n8n 자동화로 실행 속도와 운영 효율을 높입니다.</li>
+      </ul>
+
+      <h2>Core Skills</h2>
+      <ul>
+        <li><span class="k">Product:</span> Notion, Figma, Business Logic Design</li>
+        <li><span class="k">Frontend:</span> React, shadcn/ui, Tailwind CSS</li>
+        <li><span class="k">Backend:</span> FastAPI, Supabase, PostgreSQL, n8n</li>
+        <li><span class="k">Infra/DevOps:</span> Docker, AWS</li>
+        <li><span class="k">AI Agent:</span> LangGraph, LangChain, MCP server design</li>
+      </ul>
+
+      <h2>Activity & Awards</h2>
+      <ul>
+        <li>YBIGTA Data Engineering Team Leader (2024.07 - 2025.12)</li>
+        <li>SKT AI Fellowship 7기 (2025.06 - 2025.11)</li>
+        <li>연세 GenAI 활용 대회 금상 (2025.11)</li>
+        <li>서강대 x Upstage AI Workflow Hackathon 최우수상 (2025.11)</li>
+        <li>연세대 x Upstage LLM Query Hackathon 대상 (2025.11)</li>
+      </ul>
+
+      <h2>Education</h2>
+      <p>연세대학교 응용통계학과 학사 (2026년 졸업예정)</p>
+
+      <h2>Contact</h2>
+      <p>email: <a href="mailto:junho6610@yonsei.ac.kr">junho6610@yonsei.ac.kr</a></p>
+      <p>github: <a href="https://github.com/junho-baek" target="_blank" rel="noreferrer">github.com/junho-baek</a></p>
+      <p class="m">Back to terminal: <a href="../?lang=ko&cmd=who">who is junho-baek</a></p>
+    </main>
+  </body>
+</html>

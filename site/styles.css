@@ -265,6 +265,31 @@ button {
   color: #ffdccc;
 }
 
+.type-section .line-marker {
+  color: #f09a6f;
+}
+
+.type-section .line-value {
+  color: #ffc9aa;
+  font-weight: 700;
+}
+
+.type-point .line-marker {
+  color: #58d8b2;
+}
+
+.type-point .line-value {
+  color: #bff6ea;
+}
+
+.type-skill .line-marker {
+  color: #7ec7ff;
+}
+
+.type-skill .line-value {
+  color: #d3ebff;
+}
+
 .type-highlight .line-value {
   border: 1px solid rgba(142, 203, 255, 0.5);
   background: rgba(94, 169, 255, 0.1);
