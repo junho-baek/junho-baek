@@ -63,10 +63,10 @@ const translations = {
 const commandData = [
   {
     id: "who",
-    command: "/who-is-junho-baek",
+    command: "who is junho-baek",
     description: {
-      en: "Render profile headline in FIGlet-style terminal art",
-      ko: "FIGlet 스타일 터미널 헤드라인 출력",
+      en: "introduction",
+      ko: "자기소개",
     },
     lines: [
       {
@@ -113,10 +113,10 @@ const commandData = [
   },
   {
     id: "projects",
-    command: "/selected-builds",
+    command: "projects",
     description: {
-      en: "Open representative projects",
-      ko: "대표 프로젝트 열기",
+      en: "projects",
+      ko: "프로젝트",
     },
     lines: [
       {
@@ -154,40 +154,6 @@ const commandData = [
           ko: "remixstudy -> TypeScript, Supabase, PostgreSQL",
         },
         href: "https://github.com/junho-baek/remixstudy",
-      },
-    ],
-  },
-  {
-    id: "loop",
-    command: "/shipping-loop",
-    description: {
-      en: "Show repeatable build loop",
-      ko: "반복 가능한 빌드 루프 보기",
-    },
-    lines: [
-      {
-        type: "command",
-        marker: "loop",
-        text: {
-          en: "friction -> prototype -> ship -> observe -> iterate",
-          ko: "friction -> prototype -> ship -> observe -> iterate",
-        },
-      },
-      {
-        type: "summary",
-        marker: "why",
-        text: {
-          en: "speed is not chaos when feedback closes quickly.",
-          ko: "피드백 루프가 짧으면 속도는 혼란이 아니라 경쟁력입니다.",
-        },
-      },
-      {
-        type: "summary",
-        marker: "ops",
-        text: {
-          en: "clean handoff from UI to API to data automation.",
-          ko: "UI -> API -> 데이터 자동화까지 끊김 없는 핸드오프.",
-        },
       },
     ],
   },
@@ -417,7 +383,7 @@ async function appendRegularLine(line, token) {
 }
 
 function syncCommandSummary(command) {
-  commandLabel.textContent = `${command.command} ${pick(command.description)}`;
+  commandLabel.textContent = `${command.command} | ${pick(command.description)}`;
   metricMode.textContent = command.command;
 }
 
@@ -475,7 +441,7 @@ function syncPalette() {
     button.className = `palette-item${index === highlightedIndex ? " active" : ""}`;
     button.innerHTML = `
       <span class="palette-command">${command.command}</span>
-      <span class="palette-description">${pick(command.description)}</span>
+      <span class="palette-description">| ${pick(command.description)}</span>
     `;
     button.addEventListener("click", () => {
       closePalette();
