@@ -333,6 +333,17 @@ function fitBannerBlock(block, lines) {
 function wireBannerEffects(block, lines) {
   fitBannerBlock(block, lines);
   activeBannerState = {block, lines};
+  let clickSparkTimer = null;
+
+  const sparkle = document.createElement("span");
+  sparkle.className = "banner-spark";
+  sparkle.setAttribute("aria-hidden", "true");
+  block.appendChild(sparkle);
+
+  const setSparkPoint = (x, y) => {
+    block.style.setProperty("--spark-x", `${x}%`);
+    block.style.setProperty("--spark-y", `${y}%`);
+  };
 
   block.addEventListener("pointermove", (event) => {
     const rect = block.getBoundingClientRect();
@@ -345,19 +356,41 @@ function wireBannerEffects(block, lines) {
     block.style.setProperty("--banner-x", `${x}%`);
     block.style.setProperty("--banner-y", `${y}%`);
     block.style.setProperty("--banner-shift", `${shift.toFixed(2)}px`);
+    setSparkPoint(x, y);
+    block.classList.add("banner-hover");
   });
 
   block.addEventListener("pointerleave", () => {
     block.style.setProperty("--banner-x", "50%");
     block.style.setProperty("--banner-y", "50%");
     block.style.setProperty("--banner-shift", "0px");
+    setSparkPoint(50, 50);
+    if (clickSparkTimer) {
+      clearTimeout(clickSparkTimer);
+      clickSparkTimer = null;
+    }
+    block.classList.remove("banner-hover");
+    block.classList.remove("banner-click-spark");
   });
 
-  block.addEventListener("click", () => {
-    block.classList.remove("banner-burst");
-    // Retrigger the burst animation on every click.
+  block.addEventListener("click", (event) => {
+    const rect = block.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      setSparkPoint(x, y);
+    }
+    block.classList.remove("banner-click-spark");
+    // Retrigger click sparkle on every click.
     void block.offsetWidth;
-    block.classList.add("banner-burst");
+    block.classList.add("banner-click-spark");
+    if (clickSparkTimer) {
+      clearTimeout(clickSparkTimer);
+    }
+    clickSparkTimer = window.setTimeout(() => {
+      block.classList.remove("banner-click-spark");
+      clickSparkTimer = null;
+    }, 420);
   });
 }
 
