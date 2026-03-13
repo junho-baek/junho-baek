@@ -198,6 +198,54 @@ const commandData = [
         },
       },
       {
+        type: "section",
+        marker: "▸",
+        text: {
+          en: "Activity & Awards",
+          ko: "활동 및 수상",
+        },
+      },
+      {
+        type: "point",
+        marker: "award",
+        text: {
+          en: "Yonsei Y-Start-up Demo Day (2026.02) — Excellence Award for DundunAI validation",
+          ko: "연세대 Y-Start-up Demo Day (2026.02) 우수상 — 든든AI의 시장성·문제해결·MVP·실고객 검증 성과",
+        },
+      },
+      {
+        type: "point",
+        marker: "award",
+        text: {
+          en: "Yonsei GenAI Contest (2025.11) — Gold Prize",
+          ko: "연세 GenAI 활용 대회 (2025.11) — 금상",
+        },
+      },
+      {
+        type: "point",
+        marker: "award",
+        text: {
+          en: "Sogang x Upstage AI Workflow Hackathon (2025.11) — Grand Prize",
+          ko: "서강대 x Upstage AI Workflow Hackathon (2025.11) — 최우수상",
+        },
+      },
+      {
+        type: "point",
+        marker: "award",
+        text: {
+          en: "Yonsei x Upstage LLM Query Hackathon (2025.11) — Winner",
+          ko: "연세대 x Upstage LLM Query Hackathon (2025.11) — 대상",
+        },
+      },
+      {
+        type: "point",
+        marker: "activity",
+        text: {
+          en: "YBIGTA Data Engineering Team Leader (2024.07 - 2025.12), SKT AI Fellowship 7th (2025.06 - 2025.11)",
+          ko: "YBIGTA 데이터 엔지니어링 팀장(2024.07-2025.12), SKT AI Fellowship 7기(2025.06-2025.11)",
+        },
+      },
+      {
         type: "link",
         marker: "doc",
         text: {
