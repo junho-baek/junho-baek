@@ -247,6 +247,24 @@ const commandData = [
       },
       {
         type: "link",
+        marker: "link",
+        text: {
+          en: "📁 Portfolio (Notion)",
+          ko: "📁 포트폴리오 (Notion)",
+        },
+        href: "https://lovely-zone-184.notion.site/208fdc54bb72804f9647dbafc8c23430?source=copy_link",
+      },
+      {
+        type: "link",
+        marker: "link",
+        text: {
+          en: "🐙 GitHub Profile",
+          ko: "🐙 GitHub 프로필",
+        },
+        href: "https://github.com/junho-baek",
+      },
+      {
+        type: "link",
         marker: "doc",
         text: {
           en: "open detailed profile document -> /site/docs/profile.html",
