@@ -190,6 +190,14 @@ const commandData = [
         },
       },
       {
+        type: "skill",
+        marker: "skill",
+        text: {
+          en: "Growth/Marketing: GTM · GA4 · Meta Pixel · UTM tracking",
+          ko: "Growth/Marketing: GTM · GA4 · Meta Pixel · UTM 트래킹",
+        },
+      },
+      {
         type: "link",
         marker: "doc",
         text: {
@@ -271,6 +279,31 @@ const commandData = [
           en: "Product Owner (planning/design/full-stack) | React · FastAPI · n8n · Supabase",
           ko: "Product Owner(기획·디자인·풀스택) | React · FastAPI · n8n · Supabase",
         },
+      },
+      {
+        type: "point",
+        marker: "proj",
+        text: {
+          en: "[Parrot Kit] AI-native toolkit for creator workflow and monetization",
+          ko: "[Parrot Kit] 크리에이터 워크플로우·수익화를 위한 AI Native Toolkit",
+        },
+      },
+      {
+        type: "skill",
+        marker: "role",
+        text: {
+          en: "Build & Deploy | Codex · Supabase · Next.js · shadcn/ui · GTM · GA4 · Meta Pixel · LemonSqueezy",
+          ko: "Build & Deploy | Codex · Supabase · Next.js · shadcn/ui · GTM · GA4 · Meta Pixel · LemonSqueezy",
+        },
+      },
+      {
+        type: "link",
+        marker: "git",
+        text: {
+          en: "Parrot Kit repository (dev branch)",
+          ko: "Parrot Kit 저장소 (dev branch)",
+        },
+        href: "https://github.com/junho-baek/Parrotkit-deploy/tree/dev",
       },
       {
         type: "point",
