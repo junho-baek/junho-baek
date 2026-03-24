@@ -26,7 +26,6 @@
 - AI Native Product Builder이자 n8n Workflow Automation Builder로서, 제품의 실행 속도와 검증 속도를 함께 높이는 일을 지향합니다.
 - 사용자 경험(UX), 백엔드/데이터 구조, 운영 자동화를 하나의 루프로 연결해 문제 해결 중심으로 제품을 설계합니다.
 - 아이디어 단계에서 멈추지 않고 실제 MVP 배포와 사용자 검증까지 책임지는 방식으로 일합니다.
-- 📁 Portfolio: [Notion Portfolio](https://lovely-zone-184.notion.site/208fdc54bb72804f9647dbafc8c23430?source=copy_link)
 - 🐙 GitHub: [junho-baek](https://github.com/junho-baek)
 
 ## Quick Terminal Modes
