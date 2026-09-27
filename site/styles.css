@@ -625,7 +625,7 @@ button {
   }
 
   .title {
-    max-width: 40vw;
+    max-width: 22vw;
     font-size: 13px;
   }
 
@@ -640,6 +640,12 @@ button {
     padding: 6px;
     padding-bottom: 126px;
   }
+
+  .titlebar { padding: 0 8px; gap: 6px; }
+  .traffic { gap: 4px; }
+  .dot { width: 9px; height: 9px; }
+  .title-actions { gap: 4px; }
+  .title-actions .title-link, .title-actions .lang-toggle { padding: 0 7px; }
 
   .terminal-output {
     padding: 12px 10px;

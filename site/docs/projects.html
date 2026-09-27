@@ -1,131 +1,15 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baek Junho | Project Detail</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #111215;
-        --panel: #151924;
-        --line: #2e3748;
-        --text: #d5d9e2;
-        --muted: #8d95a5;
-        --accent: #f09a6f;
-        --cyan: #8ecbff;
-        --green: #58d8b2;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        padding: 28px 16px 56px;
-        background: radial-gradient(circle at 10% 0%, rgba(142,203,255,.14), transparent 44%), var(--bg);
-        color: var(--text);
-        font: 500 15px/1.7 "JetBrains Mono", monospace;
-      }
-      .wrap {
-        width: min(1020px, 100%);
-        margin: 0 auto;
-        border: 1px solid var(--line);
-        background: var(--panel);
-        padding: 24px 22px;
-      }
-      h1, h2, h3 { margin: 0 0 10px; line-height: 1.35; }
-      h1 { color: var(--cyan); font-size: 22px; }
-      h2 { color: var(--accent); font-size: 16px; margin-top: 24px; }
-      h3 { color: var(--green); font-size: 14px; margin-top: 14px; }
-      p { margin: 0 0 8px; }
-      ul { margin: 0; padding-left: 20px; }
-      li { margin: 5px 0; }
-      a { color: var(--cyan); }
-      hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
-      .m { color: var(--muted); }
-    </style>
-  </head>
-  <body>
-    <main class="wrap">
-      <h1>Selected Work — Problems, Decisions, Evidence</h1>
-      <p>프로젝트 이름보다 해결한 문제, AI에 맡긴 범위, 사람이 통제한 판단과 검증 결과를 중심으로 정리했습니다.</p>
-
-      <hr />
-
-      <h2 id="probe-plate">1) Junho Probe Plate</h2>
-      <h3>Problem</h3>
-      <p>AI가 빠르게 만든 결과물이 실행되더라도, 목표와 제약을 왜 정했는지 또는 코드가 어디서 깨지는지를 구현자가 설명하지 못할 수 있습니다.</p>
-      <h3>Decision</h3>
-      <p>기술·의도·인지 증거를 서로 대신할 수 없는 채널로 분리하고, Producer와 독립 Judge가 같은 checkpoint를 병렬 검증하도록 설계했습니다.</p>
-      <h3>Evidence</h3>
-      <p>Project-local skills, Query Wiki, closed-book cognition quiz, deterministic evidence validation을 공개 저장소로 제공합니다.</p>
-      <p><a href="https://github.com/junho-baek/junho-probe-plate" target="_blank" rel="noreferrer">repository: junho-probe-plate</a></p>
-
-      <h2 id="olivebetter">2) OLIVE BETTER — COFATHON</h2>
-      <h3>Problem</h3>
-      <p>올리브영 MD가 공개 웰니스 신호를 상품·카피·화면으로 전환하고 검토·발행·고객 반응 재적용까지 수행하는 흐름을 4시간 안에 구현해야 했습니다.</p>
-      <h3>Decision</h3>
-      <p>AI는 트렌드 해석과 기획 초안을 제안하게 하고, 품절·중복·상품 적격성·문구 안전·발행 여부는 TypeScript 정책과 MD 승인으로 다시 검증했습니다.</p>
-      <h3>Evidence</h3>
-      <p>300개 상품과 12개 필수 흐름을 대상으로 End-to-End MVP를 완성해 Olive Young Track TOP 3, 최종 2위를 기록했습니다.</p>
-
-      <h2 id="lineage">3) Data Lineage Impact Analysis Agent — SKT AI Fellowship</h2>
-      <h3>Problem</h3>
-      <p>ReAct Agent가 데이터 변경 영향도를 찾는 동안 연관 API를 반복 선택하고 불완전한 Context를 누적했습니다.</p>
-      <h3>Decision</h3>
-      <p>질문 해석과 도구 선택은 Agent에 남기고, 호출 순서가 중요한 Upstream·Downstream Lineage 조회는 결정론적 Workflow와 MCP Tool로 분리했습니다.</p>
-      <h3>Evidence</h3>
-      <p>GPT-4o-mini ReAct 대비 Answer Correctness 0.362→0.964, Correct Path Rate 0.536→0.967을 확인했습니다.</p>
-      <p><a href="https://github.com/junho-baek/AI-Fellowship-Demo" target="_blank" rel="noreferrer">public experiment: AI-Fellowship-Demo</a></p>
-
-      <h2 id="dundunai">4) 든든AI</h2>
-      <h3>Problem</h3>
-      <p>중장년 사용자는 숏폼 하나를 만들기 위해 기획·이미지·영상·음성·편집 도구를 각각 배워야 했습니다.</p>
-      <h3>Decision</h3>
-      <p>주제 입력부터 트렌드 탐색, 기획, 나레이션·이미지·영상 생성과 자동 편집을 하나의 Queue 기반 제품 흐름으로 연결하고, 동시 요청 장애 이후 워커를 분리했습니다.</p>
-      <h3>Evidence</h3>
-      <p>50명 조사, 초기 가입자 49명, 첫 영상 발행 82%를 확인했고 GenAI 활용 경진대회 금상과 Y-Startup³ 우수상을 수상했습니다.</p>
-
-      <h2 id="kpack">5) K-PACK</h2>
-      <h3>Problem</h3>
-      <p>한국 화장품 브랜드가 국가마다 다른 패키지 문구·규제·크리에이티브를 병렬로 준비하는 과정을 하나의 Agent 서비스로 줄이고자 했습니다.</p>
-      <h3>Decision</h3>
-      <p>UAE·북미·유럽·일본·중국 현지화를 병렬 실행하되, 규칙 엔진을 기준 결과로 두고 모델은 검증을 통과한 필드만 보강하게 했습니다.</p>
-      <h3>Evidence</h3>
-      <p>5일 안에 5개국 문구·근거 기반 규제 체크·3D 시안·숏폼 키비주얼을 연결해 Wanted AI Championship 2026에 출품했습니다. 결과는 확정 전입니다.</p>
-
-      <h2 id="parrotkit">6) ParrotKit</h2>
-      <h3>Problem</h3>
-      <p>브랜드의 가이드와 SKU 강점이 크리에이터의 실제 언어·촬영 장면·캠페인 운영으로 자연스럽게 이어지지 않았습니다.</p>
-      <h3>Decision</h3>
-      <p>SKU 이해→보여줄 장면→Hook→크리에이터 경험→고객 행동의 순서로 기획하고, AI는 사람을 대체하지 않고 소구점과 제약을 놓치지 않도록 지원하게 했습니다.</p>
-      <h3>Evidence</h3>
-      <p>뷰티 브랜드 미팅을 통해 TikTok Shop Affiliate의 크리에이터 발굴·소통·게시·성과 흐름을 캠페인 단위 제품으로 구체화했습니다.</p>
-      <p><a href="https://github.com/junho-baek/parrotkit_app" target="_blank" rel="noreferrer">repository: parrotkit_app</a></p>
-
-      <h2 id="glucofit">7) YBIGTA × Glucofit</h2>
-      <h3>Problem</h3>
-      <p>7명이 약 60만 건의 식사·혈당 데이터를 세 개 Task로 나눠 다루면서 CSV만으로는 데이터 형식과 결과를 다시 맞추는 통합 비용이 커졌습니다.</p>
-      <h3>Decision</h3>
-      <p>개인정보를 마스킹한 별도 PostgreSQL 개발 DB와 동일 스키마를 제안하고, FastAPI·pgvector로 분석·추천·화면을 통합했습니다.</p>
-      <h3>Evidence</h3>
-      <p>검토했던 CSV 공유 방식 대비 구현 시간을 약 1/3로 줄여 통합 데모를 시연했고 협력사 대표의 앱 반영 의사를 확인했습니다.</p>
-
-      <h2 id="labs">8) Open-Source Labs</h2>
-      <ul>
-        <li><a href="https://github.com/junho-baek/owncanvas" target="_blank" rel="noreferrer">OwnCanvas</a> — local-first creative AI canvas</li>
-        <li><a href="https://github.com/junho-baek/agentcart_priv" target="_blank" rel="noreferrer">AgentCart</a> — agent-native commerce context layer</li>
-        <li><a href="https://github.com/junho-baek/byokiyb" target="_blank" rel="noreferrer">BYOKIYB</a> — one-time local credential intake for agents</li>
-        <li><a href="https://github.com/junho-baek/oh-my-node-flow" target="_blank" rel="noreferrer">oh-my-node-flow</a> — visual node-flow experiments</li>
-      </ul>
-
-      <h2>Operating Principle</h2>
-      <p>가장 빠른 구현보다 의도에 맞게 실패하고, 같은 검증으로 고칠 수 있으며, 다음 사람이 이어서 운영할 수 있는 시스템을 지향합니다.</p>
-
-      <p class="m">Back to terminal: <a href="../?lang=ko&cmd=projects">projects</a></p>
-    </main>
-  </body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>백준호 | Selected Projects</title><meta name="description" content="Junho Probe Plate, OwnCanvas, AgentCart, BYOKIYB. 네 프로젝트의 문제와 설계, 구현."><link rel="stylesheet" href="./cases.css"></head>
+<body>
+<header>
+<nav><a href="../?lang=ko">← Live terminal</a><a href="./profile.html">Profile</a><a href="../downloads/baek-junho-portfolio.pdf">Download PDF ↗</a><a href="https://github.com/junho-baek">GitHub ↗</a></nav>
+<p class="eyebrow">BAEK JUNHO / SELECTED WORK / 2026</p>
+<h1>Intent into<br>working systems.</h1>
+<p>AI와 함께 만드는 과정에서 반복해서 만난 문제를 제품으로 풀었습니다. 협업의 검증, 생성 작업의 실행, 추천의 맥락, 키 전달의 경계를 다룹니다.</p>
+<div class="jump"><a href="#probe">01 Probe Plate</a><a href="#owncanvas">02 OwnCanvas</a><a href="#agentcart">03 AgentCart</a><a href="#byokiyb">04 BYOKIYB</a></div>
+</header>
+<main id="case-studies"><noscript>JavaScript를 켜거나 위 PDF 링크로 포트폴리오를 확인하세요.</noscript></main>
+<footer><p id="updated"></p><a href="mailto:junho6610@yonsei.ac.kr">junho6610@yonsei.ac.kr</a></footer>
+<script type="module" src="./cases.js"></script>
+</body></html>

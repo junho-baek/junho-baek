@@ -8,7 +8,9 @@
 <p align="center">
   <a href="https://junho-baek.github.io/junho-baek/">Interactive Profile</a>
   ·
-  <a href="./site/docs/projects.html">Project Notes</a>
+  <a href="https://junho-baek.github.io/junho-baek/docs/projects.html">Project Notes</a>
+  ·
+  <a href="https://junho-baek.github.io/junho-baek/downloads/baek-junho-portfolio.pdf">Portfolio PDF</a>
   ·
   <a href="https://github.com/junho-baek?tab=repositories">Repositories</a>
   ·
@@ -37,28 +39,18 @@
 | Data & Automation | PostgreSQL, Supabase, Redis, pgvector, n8n, queue-based workflows |
 | Quality & Delivery | Deterministic policy gates, type safety, unit/E2E tests, Docker, AWS, Cloudflare |
 
-## Featured Work
+## Selected Projects
 
-| Project | Problem & Ownership | Evidence |
+| Project | Problem → Implementation | Explore |
 | --- | --- | --- |
-| [Junho Probe Plate](https://github.com/junho-baek/junho-probe-plate) | AI 협업을 기술·의도·인지의 독립 증거로 관리하는 개인 하네스. 병렬 Producer·Refactor·Verify·Review·Quiz 운영과 Query Wiki 설계 | Public repository · reusable skills and review workflow |
-| OLIVE BETTER | MD의 트렌드 조사→상품 선별→카피·화면 생성→검토·발행→반응 재적용을 연결한 웰니스 기획전 자동화 MVP. AI 제안과 TypeScript 정책 gate를 분리 | COFATHON Olive Young Track TOP 3 · final 2nd |
-| Data Lineage Impact Analysis Agent | 데이터 변경의 영향 범위를 대화로 탐색. Agent의 도구 선택과 순서가 중요한 Lineage 조회 Workflow를 분리하고 MCP로 제공 | SKT AI Fellowship 7기 · GPT-4o-mini ReAct 대비 answer 0.362→0.964, path 0.536→0.967 |
-| 든든AI | 중장년 사용자의 숏폼 기획·생성·편집 파편화를 End-to-End SaaS로 연결. 제품, 생성 파이프라인, 사용자 검증과 단위경제 설계 | 50명 조사 · 초기 가입자 49명 · 첫 영상 발행 82% · 금상/우수상 |
-| K-PACK | 화장품 패키지 사진 한 장을 5개국 현지화 문구·규제 검토·3D 시안·숏폼 키비주얼로 전환하는 Agent 서비스 | Wanted AI Championship 2026 submission · rule/model fallback and cost guardrails |
-| [ParrotKit](https://github.com/junho-baek/parrotkit_app) | SKU의 USP를 크리에이터 언어와 장면으로 변환하고 캠페인 운영·성과 흐름까지 연결하는 AI-native UGC/commerce toolkit | Public product repository · beauty commerce B2B discovery and prototype |
+| **Junho Probe Plate** | AI 협업의 기술·의도·인지를 독립 증거로 검증. checkpoint 기반 병렬 역할, Query Wiki, 인지 퀴즈를 담은 개인 하네스 | [Code](https://github.com/junho-baek/junho-probe-plate) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#probe) |
+| **OwnCanvas** | 내 키와 모델을 연결하는 크리에이티브 캔버스. React Flow와 Go 생성 서비스를 나누고 이미지 fan-out·노드별 결과·재시도를 연결 | [Code](https://github.com/junho-baek/owncanvas) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#owncanvas) |
+| **AgentCart** | 큐레이터의 취향·추천 이유·광고 고지를 쇼핑 에이전트에 전달. 등록 카드와 페르소나를 연결하는 CLI·레지스트리 API·스킬 | [Code](https://github.com/junho-baek/agentcart_priv) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#agentcart) |
+| **BYOKIYB** | 모바일 폼에서 로컬 프로젝트로 API 키를 전달. 일회용 입력·만료·철회·env 기록을 제공하고 에이전트에는 상태만 노출 | [Code](https://github.com/junho-baek/byokiyb) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#byokiyb) |
 
-More detail: [Project Notes](./site/docs/projects.html)
+[Live terminal](https://junho-baek.github.io/junho-baek/)에서 `projects`, `probe`, `owncanvas`, `agentcart`, `byokiyb`, `pdf`를 선택해 탐색할 수 있습니다.
 
-## Open-Source Labs
-
-| Repository | What it explores |
-| --- | --- |
-| [OwnCanvas](https://github.com/junho-baek/owncanvas) | 사용자가 이미 보유한 키·모델을 연결하는 local-first creative AI canvas |
-| [AgentCart](https://github.com/junho-baek/agentcart_priv) | 큐레이터의 취향·상품 맥락·고지 정보를 shopping agent가 읽는 commerce context layer |
-| [BYOKIYB](https://github.com/junho-baek/byokiyb) | 비밀값을 채팅에 노출하지 않고 모바일에서 로컬 프로젝트로 전달하는 one-time credential intake |
-| [oh-my-node-flow](https://github.com/junho-baek/oh-my-node-flow) | Agent·automation workflow를 위한 visual node-flow experiments |
-| [AI Fellowship Demo](https://github.com/junho-baek/AI-Fellowship-Demo) | 데이터 Lineage와 Impact Analysis Agent의 초기 공개 실험 |
+[포트폴리오 PDF 다운로드](https://junho-baek.github.io/junho-baek/downloads/baek-junho-portfolio.pdf) · [네 프로젝트의 설계와 구현](https://junho-baek.github.io/junho-baek/docs/projects.html)
 
 ## How I Work
 

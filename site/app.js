@@ -1,3 +1,7 @@
+const portfolioResponse = await fetch(new URL('./portfolio.json', import.meta.url));
+if (!portfolioResponse.ok) throw new Error('Portfolio data could not be loaded');
+const portfolio = await portfolioResponse.json();
+
 const WHO_IS_BANNER = [
   "██╗    ██╗██╗  ██╗ ██████╗     ██╗███████╗",
   "██║    ██║██║  ██║██╔═══██╗    ██║██╔════╝",
@@ -233,7 +237,7 @@ const commandData = [
         type: "point",
         marker: "award",
         text: {
-          en: "Sogang x Upstage AI Workflow Hackathon (2025.11) — Grand Prize",
+          en: "Sogang x Upstage AI Workflow Hackathon (2025.11) — Top Excellence Award",
           ko: "서강대 x Upstage AI Workflow Hackathon (2025.11) — 최우수상",
         },
       },
@@ -241,7 +245,7 @@ const commandData = [
         type: "point",
         marker: "award",
         text: {
-          en: "Yonsei x Upstage LLM Query Hackathon (2025.11) — Winner",
+          en: "Yonsei x Upstage LLM Query Hackathon (2025.11) — Grand Prize",
           ko: "연세대 x Upstage LLM Query Hackathon (2025.11) — 대상",
         },
       },
@@ -273,123 +277,45 @@ const commandData = [
       },
     ],
   },
-  {
-    id: "projects",
-    command: "projects",
-    description: {
-      en: "projects",
-      ko: "프로젝트",
-    },
-    lines: [
-      {
-        type: "command",
-        marker: "user",
-        text: {
-          en: "cat selected_projects.md",
-          ko: "cat selected_projects.md",
-        },
-      },
-      {
-        type: "section",
-        marker: "▸",
-        text: {
-          en: "Selected Projects",
-          ko: "대표 프로젝트",
-        },
-      },
-      {
-        type: "point",
-        marker: "proj",
-        text: {
-          en: "[Junho Probe Plate] Evidence-driven harness for AI collaboration",
-          ko: "[Junho Probe Plate] AI 협업의 기술·의도·인지를 분리 검증하는 개인 하네스",
-        },
-      },
-      {
-        type: "skill",
-        marker: "role",
-        text: {
-          en: "Producer–Judge workflow · Query Wiki · closed-book cognition quiz",
-          ko: "Producer–Judge workflow · Query Wiki · closed-book cognition quiz",
-        },
-      },
-      {
-        type: "point",
-        marker: "proj",
-        text: {
-          en: "[OLIVE BETTER] Wellness merchandising automation MVP",
-          ko: "[OLIVE BETTER] 웰니스 상품 기획전 자동화 MVP",
-        },
-      },
-      {
-        type: "skill",
-        marker: "role",
-        text: {
-          en: "COFATHON Olive Young Track TOP 3 · final 2nd",
-          ko: "COFATHON Olive Young Track TOP 3 · 최종 2위",
-        },
-      },
-      {
-        type: "point",
-        marker: "proj",
-        text: {
-          en: "[Lineage Agent] Conversational impact analysis with deterministic MCP workflows",
-          ko: "[Lineage Agent] 결정론적 MCP Workflow를 결합한 대화형 영향도 분석",
-        },
-      },
-      {
-        type: "skill",
-        marker: "role",
-        text: {
-          en: "SKT AI Fellowship | answer 0.362→0.964 · path 0.536→0.967",
-          ko: "SKT AI Fellowship | answer 0.362→0.964 · path 0.536→0.967",
-        },
-      },
-      {
-        type: "point",
-        marker: "proj",
-        text: {
-          en: "[DundunAI] End-to-end short-form creation Agent SaaS",
-          ko: "[든든AI] 중장년층을 위한 End-to-End 숏폼 제작 Agent SaaS",
-        },
-      },
-      {
-        type: "skill",
-        marker: "role",
-        text: {
-          en: "50 interviews · 49 early users · 82% first-video completion · two awards",
-          ko: "50명 조사 · 초기 가입자 49명 · 첫 영상 발행 82% · 수상 2건",
-        },
-      },
-      {
-        type: "link",
-        marker: "git",
-        text: {
-          en: "Junho Probe Plate repository",
-          ko: "Junho Probe Plate 저장소",
-        },
-        href: "https://github.com/junho-baek/junho-probe-plate",
-      },
-      {
-        type: "point",
-        marker: "impact",
-        text: {
-          en: "principle: delegate fast, recover ownership through architecture, policy, and evidence",
-          ko: "principle: 빠르게 위임하고 구조·정책·증거로 오너십을 회수",
-        },
-      },
-      {
-        type: "link",
-        marker: "doc",
-        text: {
-          en: "open project details document -> /site/docs/projects.html",
-          ko: "프로젝트 상세 문서 열기 -> /site/docs/projects.html",
-        },
-        href: "./docs/projects.html",
-      },
-    ],
-  },
+  {id: "projects", command: "projects", description: {en: "selected projects", ko: "대표 프로젝트"}, lines: []},
 ];
+
+// One project source powers the terminal, case studies, GIF, and portfolio PDF.
+const line = (type, marker, text, href) => ({type, marker, text, ...(href ? {href} : {})});
+commandData[1].lines = [
+  line('highlight', '04', {ko: 'AI 협업 · 크리에이티브 제작 · 커머스 맥락 · 키 전달', en: 'AI collaboration · creative production · commerce context · credential handoff'}),
+  ...portfolio.projects.flatMap(project => [
+    line('section', project.id, project.name),
+    line('point', 'why', project.tagline),
+    line('skill', 'built', project.built),
+    line('link', 'open', {ko: `${project.name} 설계와 구현 보기`, en: `Explore ${project.name}`}, `?cmd=${project.id}`),
+  ]),
+  line('link', 'pdf', {ko: '포트폴리오 PDF 다운로드', en: 'Download portfolio PDF'}, './downloads/baek-junho-portfolio.pdf'),
+  line('link', 'cases', {ko: '네 프로젝트 상세 보기', en: 'Read all four case studies'}, './docs/projects.html'),
+];
+for (const project of portfolio.projects) {
+  commandData.push({
+    id: project.id, command: project.id,
+    description: {ko: project.name, en: project.name},
+    lines: [
+      line('section', project.id, project.name),
+      line('highlight', 'why', project.tagline),
+      line('point', 'problem', project.problem),
+      line('point', 'decision', project.decision),
+      line('skill', 'flow', project.flow.join(' → ')),
+      line('point', 'built', project.built),
+      line('info', 'scope', project.boundary),
+      line('skill', 'stack', project.stack.join(' · ')),
+      line('link', 'code', {ko: '공개 저장소와 코드 보기', en: 'Open repository and source'}, `https://github.com/junho-baek/${project.repo}`),
+      line('link', 'case', {ko: '설계 판단 자세히 읽기', en: 'Read design decisions'}, `./docs/projects.html#${project.id}`),
+    ],
+  });
+}
+commandData.push({id: 'pdf', command: 'pdf', description: {ko: '포트폴리오 다운로드', en: 'portfolio download'}, lines: [
+  line('highlight', 'portfolio', {ko: '백준호 | AI-Native Product Builder', en: 'Baek Junho | AI-Native Product Builder'}),
+  line('point', 'includes', 'Junho Probe Plate · OwnCanvas · AgentCart · BYOKIYB'),
+  line('link', 'download', {ko: '6페이지 포트폴리오 PDF 열기', en: 'Open the 6-page portfolio PDF'}, './downloads/baek-junho-portfolio.pdf'),
+]});
 
 const terminalOutput = document.getElementById("terminal-output");
 const commandBar = document.getElementById("command-bar");
@@ -414,6 +340,7 @@ if (activeIndex < 0) {
 let highlightedIndex = activeIndex;
 let typingToken = 0;
 let activeBannerState = null;
+let instantOutput = window.matchMedia('(prefers-reduced-motion: reduce)').matches || params.get('motion') === 'off';
 
 function pick(value) {
   if (typeof value === "string" || Array.isArray(value)) {
@@ -423,6 +350,7 @@ function pick(value) {
 }
 
 function wait(ms) {
+  if (instantOutput) return Promise.resolve();
   return new Promise((resolve) => window.setTimeout(resolve, ms));
 }
 
@@ -467,11 +395,13 @@ function makeLineRow(lineType, marker) {
 }
 
 async function typeText(node, text, token) {
+  if (instantOutput) { node.textContent = text; return typingToken === token; }
   let output = "";
   for (let i = 0; i < text.length; i += 1) {
     if (typingToken !== token) {
       return false;
     }
+    if (instantOutput) { node.textContent = text; return true; }
     output += text[i];
     node.textContent = output;
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
@@ -573,8 +503,18 @@ async function appendRegularLine(line, token) {
   if (line.href) {
     const anchor = document.createElement("a");
     anchor.href = line.href;
-    anchor.target = "_blank";
-    anchor.rel = "noreferrer";
+    if (line.href.startsWith('https:') || line.href.endsWith('.pdf')) {
+      anchor.target = "_blank";
+      anchor.rel = "noreferrer";
+    }
+    if (line.href.startsWith('?cmd=')) {
+      anchor.href = `${line.href}&lang=${language}`;
+      anchor.addEventListener('click', event => {
+        event.preventDefault();
+        const id = new URL(anchor.href).searchParams.get('cmd');
+        renderCommand(commandData.findIndex(command => command.id === id));
+      });
+    }
     anchor.textContent = pick(line.text);
     row.valueNode.appendChild(anchor);
     await wait(90);
@@ -603,6 +543,8 @@ async function renderCommand(index) {
   syncPalette();
   updateQueryState(!palette.classList.contains("hidden"));
   terminalOutput.innerHTML = "";
+  terminalOutput.dataset.ready = 'false';
+  activeBannerState = null;
 
   const prompt = makeLineRow("command", "user");
   prompt.valueNode.classList.add("typing");
@@ -632,7 +574,8 @@ async function renderCommand(index) {
     terminalOutput.appendChild(hint.row);
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
   }
-
+  terminalOutput.dataset.ready = 'true';
+  terminalOutput.scrollTop = 0;
 }
 
 function syncPalette() {
@@ -712,6 +655,10 @@ commandBar.addEventListener("click", () => {
 });
 paletteBackdrop.addEventListener("click", closePalette);
 langToggle.addEventListener("click", toggleLanguage);
+document.getElementById('skip-animation').addEventListener('click', () => {
+  instantOutput = true;
+  renderCommand(activeIndex);
+});
 
 window.addEventListener("keydown", (event) => {
   const paletteOpen = !palette.classList.contains("hidden");

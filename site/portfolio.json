@@ -1,0 +1,69 @@
+{
+  "updated": "2026-09-28",
+  "projects": [
+    {
+      "id": "probe", "name": "Junho Probe Plate", "category": "AI COLLABORATION", "repo": "junho-probe-plate", "sha": "7410828bcf1e4c07eb5e1a0dbc161e501899e47d",
+      "tagline": {"ko": "빠른 AI 구현을, 설명하고 검증할 수 있는 작업으로.", "en": "Make fast AI implementation explainable and verifiable."},
+      "problem": {"ko": "코파톤 이후 현직자 리뷰에서 구조 분리, 타입 경계, 구현자의 이해가 라스트 마일 과제로 남았습니다. 빠르게 코드를 만드는 과정에서도 이 판단을 반복할 수 있는 개인 하네스가 필요했습니다.", "en": "Code review after COFATHON exposed gaps in structure, type boundaries, and developer understanding. I needed a reusable harness that preserves engineering judgment while AI implements quickly."},
+      "decision": {"ko": "기술은 코드와 실행 결과, 의도는 당시 질의와 검증 행동, 인지는 문서를 닫고 답하는 퀴즈로 확인합니다. 같은 checkpoint를 보는 구현·리팩터링·검증·리뷰·퀴즈 역할을 나눴습니다.", "en": "Use code and execution for Technique, contemporaneous actions for Intent, and closed-book answers for Cognition. Separate implementation, refactoring, verification, review, and quizzes around a fixed checkpoint."},
+      "built": {"ko": "프로젝트에 복사 설치하는 스킬, Query Wiki 기록 도구, 증거 검증 스크립트와 역할별 터미널 운영 지침을 공개했습니다.", "en": "Published installable project-local skills, Query Wiki tooling, evidence validators, and role-specific terminal workflows."},
+      "boundary": {"ko": "Codex의 질의 기록은 에이전트의 start/finish 호출에 의존합니다. 자동 기록 범위와 실제 행동 증거를 구분하며, 리팩터링 결과는 검증 뒤 통합합니다.", "en": "Codex logging depends on agent start/finish calls. Recorded queries and actual intent evidence remain distinct; refactoring is integrated after verification."},
+      "stack": ["Python", "Agent Skills", "Git worktrees", "JSONL", "Codex / Claude Code"],
+      "flow": ["User intent", "Producer", "Checkpoint", "Verify / Review / Quiz"],
+      "detail": [
+        {"title": "한 기준점을 병렬로 검증", "body": "구현자는 다음 독립 기능을 이어가고, 검증자는 고정된 commit을 읽습니다. 움직이는 코드의 결과를 같은 증거로 섞지 않습니다."},
+        {"title": "원문과 해석의 수명 관리", "body": "Query Wiki는 질의를 append-only로 남깁니다. 중요한 판단은 candidate/verified 주제로 승격하고, 뒤늦은 회고를 당시 의도로 소급하지 않습니다."},
+        {"title": "인지 확인을 별도 작업으로", "body": "퀴즈는 실제 파일과 의도 이벤트를 근거로 구조·결정 이유·실패 경로를 묻습니다. 구현자가 자기 말로 답한 뒤 판정하도록 설계했습니다."}
+      ],
+      "sources": ["README.md", ".agents/skills/junho-query-wiki/scripts/query_wiki.py", ".agents/skills/junho-plate/scripts/validate_evidence.py", ".agents/skills/junho-probe-skill/tests/test_quiz_contracts.py"]
+    },
+    {
+      "id": "owncanvas", "name": "OwnCanvas", "category": "CREATIVE WORKSPACE", "repo": "owncanvas", "sha": "b6211bf9bc7dec908b0b84df462eded894d8e46b",
+      "tagline": {"ko": "이미 쓰는 AI를, 내 크리에이티브 작업 공간으로.", "en": "Use the AI you already pay for, in your own creative workspace."},
+      "problem": {"ko": "캠페인 소재를 만들 때 모델·도구마다 맥락과 결과가 흩어집니다. 사용자가 보유한 키와 모델을 연결하고 생성 과정을 한 캔버스에서 다루는 작업 공간을 만들었습니다.", "en": "Campaign creation scatters context and outputs across tools. OwnCanvas brings the user's keys, models, and generation steps into one creative canvas."},
+      "decision": {"ko": "React Flow 캔버스와 Go 생성 서비스를 분리하고, 생성 결과를 batch·job·node ID로 연결했습니다. 여러 이미지 요청에서 일부가 실패해도 노드별 상태와 재시도 경로를 유지합니다.", "en": "Separate the React Flow canvas from a Go generation service and correlate results by batch, job, and node IDs. Preserve per-node failures and retry paths in image batches."},
+      "built": {"ko": "React Router 작업 공간, 생성 블록 팔레트, 이미지 fan-out, Go worker pool, Replicate 어댑터와 실패 노드 재시도 계획이 구현되어 있습니다.", "en": "Implemented a React Router workspace, generation palette, image fan-out, Go worker pool, Replicate adapter, and failed-node retry planning."},
+      "boundary": {"ko": "공개 개발 버전입니다. 이미지 생성 경로와 계약 테스트가 있으며, 팔레트의 모든 모달리티가 같은 수준으로 완성되었다고 가정하지 않습니다. API 키는 생성 서비스에서 읽습니다.", "en": "A public development build with an image generation path and contract tests. Palette modalities are at different stages; API credentials are read by the generation service."},
+      "stack": ["TypeScript", "React Router v7", "React Flow", "Go", "Replicate"],
+      "flow": ["Image Block", "Fan-out plan", "Go worker pool", "Node results / retry"],
+      "detail": [
+        {"title": "생성 계획과 실행 분리", "body": "캔버스 어댑터는 노드·연결·요청을 계획하고, Go 서비스는 provider 호출을 실행합니다. UI 조작과 외부 API 실패가 만나는 경계를 명시했습니다."},
+        {"title": "한 노드의 실패를 추적", "body": "batch ID와 node ID로 결과를 원래 화면에 연결합니다. x1은 기존 노드를 갱신하고, 여러 장 생성은 별도 노드로 펼치며 실패한 노드를 다시 시도합니다."},
+        {"title": "동시 실행량을 제한", "body": "Go worker pool의 기본 동시 실행 수는 3, fan-out 상한은 10입니다. 응답은 입력 순서를 유지하며 각 작업의 성공·실패를 담습니다."}
+      ],
+      "sources": ["README.md", "generation/internal/generation/service.go", "app/features/creative-canvas/adapters/image-generation-fanout.ts", "generation/internal/generation/redaction_test.go"]
+    },
+    {
+      "id": "agentcart", "name": "AgentCart", "category": "AGENT COMMERCE", "repo": "agentcart_priv", "sha": "271fce158d46f0d19bbad5f97fa2582d2d615412",
+      "tagline": {"ko": "큐레이터의 취향과 추천 이유를, 에이전트가 읽게.", "en": "Make a curator's taste and recommendation context readable by agents."},
+      "problem": {"ko": "상품 링크만 전달하면 누가 누구에게 왜 추천하는지, 광고 관계는 무엇인지가 빠집니다. 크리에이터의 캠페인 맥락을 AI 쇼핑 대화 안에서도 유지하고자 했습니다.", "en": "A product link loses who recommends it, who it fits, and the commercial relationship. AgentCart preserves creator and campaign context inside AI shopping conversations."},
+      "decision": {"ko": "큐레이터·상품·에이전트 전달 맥락을 별도 프로토콜 객체로 나눴습니다. 추천은 등록 카드에 근거하고, 적합·부적합 대상, 예산, 고지와 위험 플래그를 함께 다룹니다.", "en": "Model curator, product, and agent-facing context separately. Ground recommendations in registered cards, including fit, exclusions, budget, disclosure, and risk flags."},
+      "built": {"ko": "로컬 JSON 레지스트리, CLI·조회 API, 큐레이터 범위 추천, 등록 초안 처리, 피드백 집계와 이식 가능한 쇼핑 스킬을 구현했습니다.", "en": "Built a local JSON registry, CLI and query API, curator-scoped recommendations, registration draft handling, feedback summaries, and a portable shopping skill."},
+      "boundary": {"ko": "가격은 확인 시점의 스냅샷입니다. 현재 구현은 로컬 MVP이며, 호스팅·계정·수익 분석은 후속 범위입니다. 상품 위험 플래그와 필터·감점 정책을 구분합니다.", "en": "Prices are snapshots. The current implementation is a local MVP; hosting, accounts, and revenue analytics are future work. Risk flags, filters, and score penalties have distinct roles."},
+      "stack": ["Node.js", "CLI / HTTP API", "JSON registry", "Commerce protocol", "Agent Skills"],
+      "flow": ["Curator prompt", "Scoped registry", "Fit + disclosure", "Recommendation"],
+      "detail": [
+        {"title": "배포 단위를 프롬프트로", "body": "사용자는 큐레이터 ID와 캠페인이 담긴 문장을 에이전트에 전달합니다. 에이전트가 등록된 맥락을 조회해 추천을 구성하는 유입 흐름입니다."},
+        {"title": "설명 가능한 추천 기준", "body": "검색어 관련성, 예산 적합성, notFor와 위험 항목을 점수에 반영합니다. 추천 이유와 고지를 상품 링크 앞에 제공하도록 스킬을 정의했습니다."},
+        {"title": "상품과 추천자 맥락 분리", "body": "CurationEntry, RecommenderPersona, AgentProductContext가 등록 정보와 에이전트용 정보를 연결합니다. 실시간 재고·최저가 같은 미확인 주장도 경계에 포함합니다."}
+      ],
+      "sources": ["README.md", "src/registry/recommend.js", "src/registry/protocol.js", "test/protocol.test.js"]
+    },
+    {
+      "id": "byokiyb", "name": "BYOKIYB", "category": "DEVELOPER EXPERIENCE", "repo": "byokiyb", "sha": "08d1cba0e13b4b11ec57191e359d527c8e575e03",
+      "tagline": {"ko": "휴대폰으로 키를 전달하고, 에이전트에는 상태만.", "en": "Send keys from your phone. Give agents only status."},
+      "problem": {"ko": "모바일에서 에이전트를 운전하다 API 키가 필요해지면 채팅에 붙여 넣기 쉽습니다. 사용자가 비밀값을 프로젝트에 직접 전달하는 짧은 설정 흐름을 만들었습니다.", "en": "When an agent needs an API key during mobile operation, pasting it into chat is tempting. BYOKIYB provides a short path for users to send secrets directly to their project."},
+      "decision": {"ko": "값을 입력하는 화면과 에이전트가 읽는 메타데이터를 분리했습니다. 일회용 코드·만료·철회 상태를 검사한 뒤 프로젝트 범위의 .env.local에 기록합니다.", "en": "Separate the secret intake form from agent-visible metadata. Check a one-time code, expiry, and revocation before writing to the project's .env.local."},
+      "built": {"ko": "CLI, 모바일 입력 화면, 키 슬롯 가이드, 세션 상태·철회, 원자적 env 파일 기록과 원문을 제외한 상태 응답을 구현했습니다.", "en": "Implemented a CLI, mobile intake form, key-slot guides, session status and revocation, atomic env writes, and status responses without raw secrets."},
+      "boundary": {"ko": "로컬 단일 사용자용 도구입니다. .env.local은 평문이며 암호화된 보관함을 제공하지 않습니다. 보호 목표는 대화·도구 응답·로그로의 우발적 비밀 노출을 줄이는 것입니다.", "en": "A local single-user tool. .env.local is plaintext, not an encrypted vault. Its goal is to reduce accidental secret exposure in conversations, tool responses, and logs."},
+      "stack": ["Node.js", "Local HTTP", "CLI", "One-time intake", "Agent-safe metadata"],
+      "flow": ["CLI request", "Mobile intake", "Project env file", "Safe status"],
+      "detail": [
+        {"title": "비밀을 보지 않아도 진행", "body": "에이전트에는 provider·key name·destination·presence·status만 전달합니다. 입력값은 사용자가 폼을 통해 직접 제공합니다."},
+        {"title": "입력 수명과 저장 경계", "body": "만료·철회·저장 완료 상태를 검사합니다. env 목적지의 프로젝트 상대 경로를 확인하고, 임시 파일과 rename으로 기록을 완료하며 권한은 0600으로 설정합니다."},
+        {"title": "키 이름부터 정확하게", "body": "가이드와 manifest는 서비스별 환경변수 슬롯을 안내합니다. 값을 요청하기 전에 어떤 프로젝트의 어떤 슬롯이 필요한지 구체화합니다."}
+      ],
+      "sources": ["README.md", "src/server.js", "src/envFile.js", "test/server.test.js"]
+    }
+  ]
+}

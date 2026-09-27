@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import portfolio from '../site/portfolio.json';
 
 const fontStack = 'JetBrains Mono, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace';
 
@@ -177,12 +178,11 @@ const WhoScreen = ({frame}) => {
   return (
     <div>
       <TypedLine frame={frame} startFrame={14} marker="user" text="junho@builder:~$ who is junho-baek" />
-      <TypedLine frame={frame} startFrame={21} marker="user" text="cat who_is_junho_baek.md" />
       <TypedLine
         frame={frame}
         startFrame={30}
         marker="*"
-        text="안녕하세요. AI Native 개발 문화를 기반으로 사회 문제 해결형 제품을 기획·개발하는 백준호입니다."
+        text="AI에게 빠르게 위임하되, 구조·정책·검증으로 결과를 책임지는 백준호입니다."
         boxed
       />
       <Banner frame={frame} startFrame={38} />
@@ -190,13 +190,13 @@ const WhoScreen = ({frame}) => {
         frame={frame}
         startFrame={76}
         marker="bio"
-        text="- FE, BE, DE, AI Agent 역량을 결합한 Full-Stack Background Product Builder"
+        text="- AI-Native Product Builder | Intent into working systems"
       />
       <TypedLine
         frame={frame}
         startFrame={82}
         marker="skill"
-        text="- n8n Workflow Automation · GTM · GA4 · Meta Pixel 기반 실행/측정 루프 설계"
+        text="- Technique · Intent · Cognition | build, verify, explain"
       />
     </div>
   );
@@ -205,19 +205,13 @@ const WhoScreen = ({frame}) => {
 const ProjectScreen = ({frame}) => {
   return (
     <div>
-      <TypedLine frame={frame} startFrame={94} marker="user" text="junho@builder:~$ projects" />
-      <TypedLine frame={frame} startFrame={100} marker="user" text="cat selected_projects.md" />
-      <TypedLine frame={frame} startFrame={106} marker="proj" text="[Glucofit] personalized glucose app | React · FastAPI · PostgreSQL" />
-      <TypedLine frame={frame} startFrame={111} marker="proj" text="[AIDP] in-house data analysis AI Agent | LangGraph · LangChain · Redis" />
-      <TypedLine frame={frame} startFrame={116} marker="proj" text="[DundunAI] short-form creation & monetization Agent SaaS | React · n8n · Supabase" />
-      <TypedLine
-        frame={frame}
-        startFrame={121}
-        marker="proj"
-        text="[Parrot Kit] creator workflow toolkit | Codex · Next.js · shadcn/ui · GTM · GA4 · Meta Pixel"
-      />
-      <TypedLine frame={frame} startFrame={126} marker="git" text="github.com/junho-baek/Parrotkit-deploy/tree/dev" />
-      <TypedLine frame={frame} startFrame={131} marker="next" text="project details -> /site/docs/projects.html" />
+      <TypedLine frame={frame} startFrame={164} marker="user" text="junho@builder:~$ projects" />
+      <TypedLine frame={frame} startFrame={174} marker="user" text="cat selected_projects.md" />
+      {portfolio.projects.map((project, index) => (
+        <TypedLine key={project.id} frame={frame} startFrame={188 + index * 14} marker="proj" text={`[${project.name}] ${project.tagline.en}`} />
+      ))}
+      <TypedLine frame={frame} startFrame={244} marker="git" text="github.com/junho-baek | four public projects" />
+      <TypedLine frame={frame} startFrame={258} marker="next" text="Explore the live terminal -> projects / probe / owncanvas / agentcart / byokiyb / pdf" />
     </div>
   );
 };
@@ -236,18 +230,18 @@ export const TerminalPreview = () => {
     durationInFrames: 22,
   });
 
-  const whoOpacity = interpolate(frame, [0, 88, 98], [1, 1, 0], {
+  const whoOpacity = interpolate(frame, [0, 148, 164], [1, 1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.cubic),
   });
-  const projectOpacity = interpolate(frame, [90, 106], [0, 1], {
+  const projectOpacity = interpolate(frame, [150, 166], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.cubic),
   });
 
-  const switching = interpolate(frame, [88, 104], [0, 1], {
+  const switching = interpolate(frame, [148, 164], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.inOut(Easing.cubic),
