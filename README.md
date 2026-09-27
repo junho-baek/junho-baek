@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://junho-baek.github.io/junho-baek/">
-    <img src="./assets/capability-hero.svg" alt="Baek Junho — interface, systems, data, and delivery" width="100%" />
+    <img src="./assets/terminal-preview.gif" alt="Interactive terminal preview" width="100%" />
   </a>
 </p>
 
@@ -58,7 +58,6 @@ More detail: [Project Notes](./site/docs/projects.html)
 | [AgentCart](https://github.com/junho-baek/agentcart_priv) | 큐레이터의 취향·상품 맥락·고지 정보를 shopping agent가 읽는 commerce context layer |
 | [BYOKIYB](https://github.com/junho-baek/byokiyb) | 비밀값을 채팅에 노출하지 않고 모바일에서 로컬 프로젝트로 전달하는 one-time credential intake |
 | [oh-my-node-flow](https://github.com/junho-baek/oh-my-node-flow) | Agent·automation workflow를 위한 visual node-flow experiments |
-| [AutoHRAnalytics](https://github.com/junho-baek/AutoHRAnalytics) | Notion API, FastAPI, React를 연결한 HR analytics prototype |
 | [AI Fellowship Demo](https://github.com/junho-baek/AI-Fellowship-Demo) | 데이터 Lineage와 Impact Analysis Agent의 초기 공개 실험 |
 
 ## How I Work
