@@ -1,78 +1,96 @@
 # Baek Junho | AI-Native Product Builder
 
 <p align="center">
-  안녕하세요. AI Native 개발 문화를 기반으로 사회 문제 해결형 제품을 기획·개발하는 백준호입니다.<br />
-  FE·BE·DE·AI Agent 역량을 결합해, 아이디어를 빠르게 제품으로 만들고 데이터로 개선합니다.
+  <strong>AI에게 빠르게 위임하되, 결과의 책임은 구조·정책·검증으로 회수합니다.</strong><br />
+  모호한 비즈니스 문제를 실행 가능한 Agent Workflow와 제품으로 바꾸는 백준호입니다.
 </p>
 
 <p align="center">
-  <a href="https://junho-baek.github.io/junho-baek/">Interactive Terminal</a>
-  ▌
-  <a href="./site/docs/profile.html">Profile Detail</a>
-  ▌
-  <a href="./site/docs/projects.html">Project Detail</a>
-  ▌
+  <a href="https://junho-baek.github.io/junho-baek/">Interactive Profile</a>
+  ·
+  <a href="./site/docs/projects.html">Project Notes</a>
+  ·
   <a href="https://github.com/junho-baek?tab=repositories">Repositories</a>
+  ·
+  <a href="mailto:junho6610@yonsei.ac.kr">Email</a>
 </p>
 
 <p align="center">
   <a href="https://junho-baek.github.io/junho-baek/">
-    <img src="./assets/terminal-preview.gif" alt="Interactive terminal preview" width="100%" />
+    <img src="./assets/capability-hero.svg" alt="Baek Junho — interface, systems, data, and delivery" width="100%" />
   </a>
 </p>
 
-## Who I Am
+## About
 
-- AI Native Product Builder이자 n8n Workflow Automation Builder로서, 제품의 실행 속도와 검증 속도를 함께 높이는 일을 지향합니다.
-- 사용자 경험(UX), 백엔드/데이터 구조, 운영 자동화를 하나의 루프로 연결해 문제 해결 중심으로 제품을 설계합니다.
-- 아이디어 단계에서 멈추지 않고 실제 MVP 배포와 사용자 검증까지 책임지는 방식으로 일합니다.
-- 🐙 GitHub: [junho-baek](https://github.com/junho-baek)
+- Frontend·Backend·Data·AI Agent를 연결해 아이디어를 **검증 가능한 제품 흐름**으로 만듭니다.
+- Commerce, Wellness, Content Operations처럼 사용자·상품·데이터가 얽힌 문제를 좋아합니다.
+- LLM은 탐색·해석·초안 생성에 활용하고, 안전·권한·스키마·발행은 결정론적 정책과 사람의 승인으로 통제합니다.
+- 구현 속도뿐 아니라 왜 이 구조를 택했는지, 어디서 깨지는지, 무엇으로 검증했는지까지 설명할 수 있어야 한다고 생각합니다.
 
-## Quick Terminal Modes
+## What I Build
 
-```bash
-> who is junho-baek | 자기소개
-> projects | 프로젝트
+| Area | Focus |
+| --- | --- |
+| Agent Systems | OpenAI/Cloudflare Agents SDK, LangGraph, MCP, skill-driven orchestration, producer–judge workflows |
+| Product Engineering | TypeScript, React Router/Next.js, Python, FastAPI, API·Admin·Customer 경계 설계 |
+| Data & Automation | PostgreSQL, Supabase, Redis, pgvector, n8n, queue-based workflows |
+| Quality & Delivery | Deterministic policy gates, type safety, unit/E2E tests, Docker, AWS, Cloudflare |
+
+## Featured Work
+
+| Project | Problem & Ownership | Evidence |
+| --- | --- | --- |
+| [Junho Probe Plate](https://github.com/junho-baek/junho-probe-plate) | AI 협업을 기술·의도·인지의 독립 증거로 관리하는 개인 하네스. 병렬 Producer·Refactor·Verify·Review·Quiz 운영과 Query Wiki 설계 | Public repository · reusable skills and review workflow |
+| OLIVE BETTER | MD의 트렌드 조사→상품 선별→카피·화면 생성→검토·발행→반응 재적용을 연결한 웰니스 기획전 자동화 MVP. AI 제안과 TypeScript 정책 gate를 분리 | COFATHON Olive Young Track TOP 3 · final 2nd |
+| Data Lineage Impact Analysis Agent | 데이터 변경의 영향 범위를 대화로 탐색. Agent의 도구 선택과 순서가 중요한 Lineage 조회 Workflow를 분리하고 MCP로 제공 | SKT AI Fellowship 7기 · GPT-4o-mini ReAct 대비 answer 0.362→0.964, path 0.536→0.967 |
+| 든든AI | 중장년 사용자의 숏폼 기획·생성·편집 파편화를 End-to-End SaaS로 연결. 제품, 생성 파이프라인, 사용자 검증과 단위경제 설계 | 50명 조사 · 초기 가입자 49명 · 첫 영상 발행 82% · 금상/우수상 |
+| K-PACK | 화장품 패키지 사진 한 장을 5개국 현지화 문구·규제 검토·3D 시안·숏폼 키비주얼로 전환하는 Agent 서비스 | Wanted AI Championship 2026 submission · rule/model fallback and cost guardrails |
+| [ParrotKit](https://github.com/junho-baek/parrotkit_app) | SKU의 USP를 크리에이터 언어와 장면으로 변환하고 캠페인 운영·성과 흐름까지 연결하는 AI-native UGC/commerce toolkit | Public product repository · beauty commerce B2B discovery and prototype |
+
+More detail: [Project Notes](./site/docs/projects.html)
+
+## Open-Source Labs
+
+| Repository | What it explores |
+| --- | --- |
+| [OwnCanvas](https://github.com/junho-baek/owncanvas) | 사용자가 이미 보유한 키·모델을 연결하는 local-first creative AI canvas |
+| [AgentCart](https://github.com/junho-baek/agentcart_priv) | 큐레이터의 취향·상품 맥락·고지 정보를 shopping agent가 읽는 commerce context layer |
+| [BYOKIYB](https://github.com/junho-baek/byokiyb) | 비밀값을 채팅에 노출하지 않고 모바일에서 로컬 프로젝트로 전달하는 one-time credential intake |
+| [oh-my-node-flow](https://github.com/junho-baek/oh-my-node-flow) | Agent·automation workflow를 위한 visual node-flow experiments |
+| [AutoHRAnalytics](https://github.com/junho-baek/AutoHRAnalytics) | Notion API, FastAPI, React를 연결한 HR analytics prototype |
+| [AI Fellowship Demo](https://github.com/junho-baek/AI-Fellowship-Demo) | 데이터 Lineage와 Impact Analysis Agent의 초기 공개 실험 |
+
+## How I Work
+
+```text
+Problem & constraints
+        ↓
+Intent and acceptance criteria
+        ↓
+AI-assisted implementation
+        ↓
+Deterministic gates + human decision
+        ↓
+Tests, evidence, and closed-book explanation
 ```
 
-- Live terminal: [junho-baek.github.io/junho-baek](https://junho-baek.github.io/junho-baek/)
-- Detailed profile doc: [site/docs/profile.html](./site/docs/profile.html)
-- Detailed projects doc: [site/docs/projects.html](./site/docs/projects.html)
+- **Technique** — 실제로 실행되고 유지 가능한가: 경계, 타입, 보안, 빌드, 테스트로 확인합니다.
+- **Intent** — 무엇을 왜 맡겼는가: 목표·제약·대안·실패·재검증을 기록합니다.
+- **Cognition** — 산출물을 이해하는가: 정상·비정상 경로와 파손 조건을 자기 말로 설명합니다.
 
-## Core Skills
+## Awards & Activities
 
-| Domain | Skills |
-| --- | --- |
-| Product | Notion, Figma, Business Logic Design |
-| Frontend | React, Next.js, shadcn/ui, Tailwind CSS |
-| Backend/Data | FastAPI, Supabase, PostgreSQL, n8n |
-| AI/Automation | LangGraph, LangChain, MCP server design, Codex |
-| Infra/DevOps | Docker, AWS |
-| Growth/Marketing | GTM, GA4, Meta Pixel, UTM measurement |
-
-## Selected Projects
-
-| Project | Summary | Stack |
-| --- | --- | --- |
-| Glucofit (산학협력) | 혈당 데이터 기반 개인화 식단 관리 앱 개선 | React, FastAPI, PostgreSQL, Pandas, AWS |
-| AIDP (SKT Fellowship) | 사내 데이터 흐름 파악을 위한 AI Agent | LangGraph, LangChain, Redis, Docker |
-| 든든AI | 중장년층 숏폼 제작·수익화 Agent SaaS | React, FastAPI, n8n, Supabase, PostgreSQL |
-| Parrot Kit | 크리에이터 워크플로우·수익화 AI Native Toolkit | Codex, Supabase, Next.js, shadcn/ui, GTM, GA4, Meta Pixel, LemonSqueezy |
-
-- Parrot Kit repository: [Parrotkit-deploy (dev)](https://github.com/junho-baek/Parrotkit-deploy/tree/dev)
-- Project deep dive: [site/docs/projects.html](./site/docs/projects.html)
-
-## Activity & Awards
-
-- 연세대 Y-Start-up Demo Day 우수상 (2026.02)  
-  든든AI의 시장성, 문제 해결 적합성, MVP 완성도, 실고객 검증 성과를 인정받았습니다.
-- YBIGTA Data Engineering Team Leader (2024.07 - 2025.12)
-- SKT AI Fellowship 7기 (2025.06 - 2025.11)
-- 연세 GenAI 활용 대회 금상 (2025.11)
-- 서강대 x Upstage AI Workflow Hackathon 최우수상 (2025.11)
-- 연세대 x Upstage LLM Query Hackathon 대상 (2025.11)
+- **2026 COFATHON Olive Young Track TOP 3** — final 2nd (KRAFTON · CJ Olive Young, 2026.07)
+- **Y-Startup³ Entrepreneurship Competition, Excellence Award** — 든든AI 사업성·수익구조 검증 (2026.02)
+- **Yonsei GenAI Competition, Gold Prize** — 든든AI End-to-End product (2025.12)
+- **LLM Query Hackathon, Grand Prize** — 13-rule Korean proofreading prompt and candidate review flow (2025.11)
+- **AI Workflow Hackathon, Top Excellence Award** — n8n content generation·evaluation·publishing workflow, team lead (2025.11)
+- **SKT AI Fellowship 7기** — Agent Architecture and MCP-based Lineage exploration (2025.06–11)
+- **YBIGTA Data Engineering** — Glucofit industry project, DE team operation, AGI Agent Hackathon planning (2024.09–2025.06)
 
 ## Contact
 
 - Email: [junho6610@yonsei.ac.kr](mailto:junho6610@yonsei.ac.kr)
 - GitHub: [github.com/junho-baek](https://github.com/junho-baek)
+- Based in Seoul, South Korea

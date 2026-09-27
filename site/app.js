@@ -81,8 +81,8 @@ const commandData = [
         type: "highlight",
         marker: "*",
         text: {
-          en: "Hello. I am Junho Baek, an AI-Native product builder focused on social impact.",
-          ko: "안녕하세요. AI Native 개발 문화를 바탕으로 사회 문제 해결에 집중하는 백준호입니다.",
+          en: "I turn ambiguous business problems into testable agent workflows and products.",
+          ko: "모호한 비즈니스 문제를 검증 가능한 Agent Workflow와 제품으로 바꾸는 백준호입니다.",
         },
       },
       {
@@ -105,16 +105,16 @@ const commandData = [
         type: "point",
         marker: "·",
         text: {
-          en: "AI Native Product Builder + n8n Workflow Automation Builder",
-          ko: "AI Native Product Builder + n8n Workflow Automation Builder",
+          en: "AI-Native Product Builder across frontend, backend, data, and agent systems",
+          ko: "Frontend·Backend·Data·AI Agent를 연결하는 AI-Native Product Builder",
         },
       },
       {
         type: "point",
         marker: "·",
         text: {
-          en: "Full-Stack Background planner with FE, BE, DE, and AI Agent execution",
-          ko: "FE/BE/DE/AI Agent 개발 역량을 바탕으로 실현 가능한 기획을 수행하는 Full-Stack Background 기획자",
+          en: "Fast delegation to AI; ownership recovered through architecture, policy, and evidence",
+          ko: "AI에 빠르게 위임하되 구조·정책·검증으로 결과의 책임을 회수",
         },
       },
       {
@@ -129,24 +129,24 @@ const commandData = [
         type: "point",
         marker: "·",
         text: {
-          en: "Improve AI UX to raise user trust and conversion",
-          ko: "AI UX 개선을 통해 사용자 신뢰와 경험 품질을 높입니다.",
+          en: "Define the problem, constraints, and acceptance criteria before implementation",
+          ko: "구현 전에 문제·제약·완료 조건을 먼저 고정합니다.",
         },
       },
       {
         type: "point",
         marker: "·",
         text: {
-          en: "Build AI services that solve practical social pain points",
-          ko: "실질적인 사회 문제를 해결하는 AI 서비스를 기획하고 구현합니다.",
+          en: "Separate probabilistic model proposals from deterministic safety and publish gates",
+          ko: "확률적 모델 제안과 결정론적 안전·발행 gate를 분리합니다.",
         },
       },
       {
         type: "point",
         marker: "·",
         text: {
-          en: "Automate execution with AI workflow and n8n orchestration",
-          ko: "n8n 기반 AI Workflow 자동화로 실행 속도와 운영 효율을 끌어올립니다.",
+          en: "Close the loop with tests, evidence, and a closed-book explanation of the system",
+          ko: "테스트·증거·closed-book 설명으로 검증 루프를 닫습니다.",
         },
       },
       {
@@ -161,40 +161,40 @@ const commandData = [
         type: "skill",
         marker: "skill",
         text: {
-          en: "Product: Notion · Figma · Business Logic Design",
-          ko: "Product: Notion · Figma · Business Logic Design",
+          en: "Agent Systems: OpenAI/Cloudflare Agents SDK · LangGraph · MCP · runtime skills",
+          ko: "Agent Systems: OpenAI/Cloudflare Agents SDK · LangGraph · MCP · runtime skills",
         },
       },
       {
         type: "skill",
         marker: "skill",
         text: {
-          en: "Frontend: React · shadcn/ui · Tailwind CSS",
-          ko: "Frontend: React · shadcn/ui · Tailwind CSS",
+          en: "Product Engineering: TypeScript · React Router/Next.js · Python · FastAPI",
+          ko: "Product Engineering: TypeScript · React Router/Next.js · Python · FastAPI",
         },
       },
       {
         type: "skill",
         marker: "skill",
         text: {
-          en: "Backend/Data: FastAPI · Supabase · PostgreSQL · n8n",
-          ko: "Backend/Data: FastAPI · Supabase · PostgreSQL · n8n",
+          en: "Data/Automation: PostgreSQL · Supabase · Redis · pgvector · n8n · queues",
+          ko: "Data/Automation: PostgreSQL · Supabase · Redis · pgvector · n8n · queues",
         },
       },
       {
         type: "skill",
         marker: "skill",
         text: {
-          en: "Infra/Agent: Docker · AWS · LangGraph · LangChain",
-          ko: "Infra/Agent: Docker · AWS · LangGraph · LangChain",
+          en: "Quality: deterministic gates · type safety · unit/E2E tests · secret hygiene",
+          ko: "Quality: deterministic gates · type safety · unit/E2E tests · secret hygiene",
         },
       },
       {
         type: "skill",
         marker: "skill",
         text: {
-          en: "Growth/Marketing: GTM · GA4 · Meta Pixel · UTM tracking",
-          ko: "Growth/Marketing: GTM · GA4 · Meta Pixel · UTM 트래킹",
+          en: "Delivery: Docker · AWS · Cloudflare · user validation and feedback loops",
+          ko: "Delivery: Docker · AWS · Cloudflare · 사용자 검증과 feedback loop",
         },
       },
       {
@@ -209,16 +209,24 @@ const commandData = [
         type: "point",
         marker: "award",
         text: {
-          en: "Yonsei Y-Start-up Demo Day (2026.02) — Excellence Award for DundunAI validation",
-          ko: "연세대 Y-Start-up Demo Day (2026.02) 우수상 — 든든AI의 시장성·문제해결·MVP·실고객 검증 성과",
+          en: "COFATHON Olive Young Track (2026.07) — TOP 3, final 2nd",
+          ko: "COFATHON Olive Young Track (2026.07) — TOP 3, 최종 2위",
         },
       },
       {
         type: "point",
         marker: "award",
         text: {
-          en: "Yonsei GenAI Contest (2025.11) — Gold Prize",
-          ko: "연세 GenAI 활용 대회 (2025.11) — 금상",
+          en: "Y-Startup³ Entrepreneurship Competition (2026.02) — Excellence Award",
+          ko: "Y-Startup³ 창업 경진대회 (2026.02) — 우수상",
+        },
+      },
+      {
+        type: "point",
+        marker: "award",
+        text: {
+          en: "Yonsei GenAI Contest (2025.12) — Gold Prize",
+          ko: "연세 GenAI 활용 경진대회 (2025.12) — 금상",
         },
       },
       {
@@ -241,8 +249,8 @@ const commandData = [
         type: "point",
         marker: "activity",
         text: {
-          en: "YBIGTA Data Engineering Team Leader (2024.07 - 2025.12), SKT AI Fellowship 7th (2025.06 - 2025.11)",
-          ko: "YBIGTA 데이터 엔지니어링 팀장(2024.07-2025.12), SKT AI Fellowship 7기(2025.06-2025.11)",
+          en: "YBIGTA Data Engineering (2024.09 - 2025.06), SKT AI Fellowship 7th (2025.06 - 2025.11)",
+          ko: "YBIGTA Data Engineering(2024.09-2025.06), SKT AI Fellowship 7기(2025.06-2025.11)",
         },
       },
       {
@@ -293,81 +301,81 @@ const commandData = [
         type: "point",
         marker: "proj",
         text: {
-          en: "[Glucofit] Personalized glucose-based diet management app (Industry project)",
-          ko: "[Glucofit] 혈당 데이터 기반 개인화 식단 관리 앱 개선 (산학협력)",
+          en: "[Junho Probe Plate] Evidence-driven harness for AI collaboration",
+          ko: "[Junho Probe Plate] AI 협업의 기술·의도·인지를 분리 검증하는 개인 하네스",
         },
       },
       {
         type: "skill",
         marker: "role",
         text: {
-          en: "PM & Lead Developer | React · FastAPI · PostgreSQL · Pandas · AWS",
-          ko: "PM & Lead Developer | React · FastAPI · PostgreSQL · Pandas · AWS",
+          en: "Producer–Judge workflow · Query Wiki · closed-book cognition quiz",
+          ko: "Producer–Judge workflow · Query Wiki · closed-book cognition quiz",
         },
       },
       {
         type: "point",
         marker: "proj",
         text: {
-          en: "[AIDP] In-house data analysis AI Agent (SKT Fellowship)",
-          ko: "[AIDP] 사내 데이터 분석 AI Agent (SKT Fellowship)",
+          en: "[OLIVE BETTER] Wellness merchandising automation MVP",
+          ko: "[OLIVE BETTER] 웰니스 상품 기획전 자동화 MVP",
         },
       },
       {
         type: "skill",
         marker: "role",
         text: {
-          en: "AI Agent architecture + MCP server | LangGraph · LangChain · Redis · Docker",
-          ko: "AI Agent 설계 + MCP 서버 개발 | LangGraph · LangChain · Redis · Docker",
+          en: "COFATHON Olive Young Track TOP 3 · final 2nd",
+          ko: "COFATHON Olive Young Track TOP 3 · 최종 2위",
         },
       },
       {
         type: "point",
         marker: "proj",
         text: {
-          en: "[DundunAI] Short-form creation and monetization Agent SaaS",
-          ko: "[든든AI] 중장년층 숏폼 제작·수익화 Agent SaaS",
+          en: "[Lineage Agent] Conversational impact analysis with deterministic MCP workflows",
+          ko: "[Lineage Agent] 결정론적 MCP Workflow를 결합한 대화형 영향도 분석",
         },
       },
       {
         type: "skill",
         marker: "role",
         text: {
-          en: "Product Owner (planning/design/full-stack) | React · FastAPI · n8n · Supabase",
-          ko: "Product Owner(기획·디자인·풀스택) | React · FastAPI · n8n · Supabase",
+          en: "SKT AI Fellowship | answer 0.362→0.964 · path 0.536→0.967",
+          ko: "SKT AI Fellowship | answer 0.362→0.964 · path 0.536→0.967",
         },
       },
       {
         type: "point",
         marker: "proj",
         text: {
-          en: "[Parrot Kit] AI-native toolkit for creator workflow and monetization",
-          ko: "[Parrot Kit] 크리에이터 워크플로우·수익화를 위한 AI Native Toolkit",
+          en: "[DundunAI] End-to-end short-form creation Agent SaaS",
+          ko: "[든든AI] 중장년층을 위한 End-to-End 숏폼 제작 Agent SaaS",
         },
       },
       {
         type: "skill",
         marker: "role",
         text: {
-          en: "Build & Deploy | Codex · Supabase · Next.js · shadcn/ui · GTM · GA4 · Meta Pixel · LemonSqueezy",
-          ko: "Build & Deploy | Codex · Supabase · Next.js · shadcn/ui · GTM · GA4 · Meta Pixel · LemonSqueezy",
+          en: "50 interviews · 49 early users · 82% first-video completion · two awards",
+          ko: "50명 조사 · 초기 가입자 49명 · 첫 영상 발행 82% · 수상 2건",
         },
       },
       {
         type: "link",
         marker: "git",
         text: {
-          en: "Parrot Kit repository (dev branch)",
-          ko: "Parrot Kit 저장소 (dev branch)",
+          en: "Junho Probe Plate repository",
+          ko: "Junho Probe Plate 저장소",
         },
-        href: "https://github.com/junho-baek/Parrotkit-deploy/tree/dev",
+        href: "https://github.com/junho-baek/junho-probe-plate",
       },
       {
         type: "point",
         marker: "impact",
         text: {
-          en: "impact: AI workflow products that turn social pain points into measurable outcomes",
-          ko: "impact: 사회 문제를 측정 가능한 결과로 전환하는 AI Workflow 제품을 설계·실험·배포",
+          en: "principle: delegate fast, recover ownership through architecture, policy, and evidence",
+          ko: "principle: 빠르게 위임하고 구조·정책·증거로 오너십을 회수",
         },
       },
       {

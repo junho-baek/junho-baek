@@ -50,60 +50,80 @@
   </head>
   <body>
     <main class="wrap">
-      <h1>Selected Projects — Detailed Notes</h1>
-      <p>AI Native 제품 관점에서 문제 정의, 자동화, 임팩트를 중심으로 정리한 프로젝트 문서입니다.</p>
+      <h1>Selected Work — Problems, Decisions, Evidence</h1>
+      <p>프로젝트 이름보다 해결한 문제, AI에 맡긴 범위, 사람이 통제한 판단과 검증 결과를 중심으로 정리했습니다.</p>
 
       <hr />
 
-      <h2>1) Glucofit (산학협력)</h2>
-      <h3>기획 의도</h3>
-      <p>혈당 데이터 기반 개인화 식단 관리 솔루션을 통해 생활 습관 개선을 돕는 모바일 경험을 설계했습니다.</p>
-      <h3>주요 기능</h3>
-      <ul>
-        <li>혈당 민감도 분석</li>
-        <li>식사 및 운동 추천 알고리즘 피드백 UI</li>
-      </ul>
-      <h3>Role / Tech</h3>
-      <p>PM & Lead Developer | React, FastAPI, PostgreSQL, Pandas, AWS</p>
+      <h2 id="probe-plate">1) Junho Probe Plate</h2>
+      <h3>Problem</h3>
+      <p>AI가 빠르게 만든 결과물이 실행되더라도, 목표와 제약을 왜 정했는지 또는 코드가 어디서 깨지는지를 구현자가 설명하지 못할 수 있습니다.</p>
+      <h3>Decision</h3>
+      <p>기술·의도·인지 증거를 서로 대신할 수 없는 채널로 분리하고, Producer와 독립 Judge가 같은 checkpoint를 병렬 검증하도록 설계했습니다.</p>
+      <h3>Evidence</h3>
+      <p>Project-local skills, Query Wiki, closed-book cognition quiz, deterministic evidence validation을 공개 저장소로 제공합니다.</p>
+      <p><a href="https://github.com/junho-baek/junho-probe-plate" target="_blank" rel="noreferrer">repository: junho-probe-plate</a></p>
 
-      <h2>2) AIDP (SKT Fellowship)</h2>
-      <h3>기획 의도</h3>
-      <p>복잡한 사내 데이터 흐름을 대화형 인터페이스로 파악하여 분석 업무의 접근성과 속도를 높였습니다.</p>
-      <h3>주요 기능</h3>
-      <ul>
-        <li>데이터 리니지(Lineage) 추적</li>
-        <li>Context 기반 질의응답 Agent</li>
-      </ul>
-      <h3>Role / Tech</h3>
-      <p>AI Agent 설계 및 MCP 서버 개발 | LangGraph, LangChain, Redis, Docker</p>
+      <h2 id="olivebetter">2) OLIVE BETTER — COFATHON</h2>
+      <h3>Problem</h3>
+      <p>올리브영 MD가 공개 웰니스 신호를 상품·카피·화면으로 전환하고 검토·발행·고객 반응 재적용까지 수행하는 흐름을 4시간 안에 구현해야 했습니다.</p>
+      <h3>Decision</h3>
+      <p>AI는 트렌드 해석과 기획 초안을 제안하게 하고, 품절·중복·상품 적격성·문구 안전·발행 여부는 TypeScript 정책과 MD 승인으로 다시 검증했습니다.</p>
+      <h3>Evidence</h3>
+      <p>300개 상품과 12개 필수 흐름을 대상으로 End-to-End MVP를 완성해 Olive Young Track TOP 3, 최종 2위를 기록했습니다.</p>
 
-      <h2>3) 든든AI (자체 서비스)</h2>
-      <h3>기획 의도</h3>
-      <p>중장년층도 쉽게 숏폼 콘텐츠를 제작하고 수익화할 수 있도록 지원하는 Agent SaaS를 구축했습니다.</p>
-      <h3>주요 기능</h3>
-      <ul>
-        <li>캐릭터+기획 엔진 기반 쇼츠 생성</li>
-        <li>업로드 및 운영 자동화 workflow</li>
-      </ul>
-      <h3>Role / Tech</h3>
-      <p>Product Owner (기획, 디자인, 풀스택 총괄) | React, FastAPI, n8n, Supabase, PostgreSQL</p>
-      <h3>성과</h3>
-      <p>연세대 Y-Start-up Demo Day 우수상 (2026.02) — 시장성, 문제 해결 적합성, MVP 완성도, 실고객 검증 성과를 인정받았습니다.</p>
+      <h2 id="lineage">3) Data Lineage Impact Analysis Agent — SKT AI Fellowship</h2>
+      <h3>Problem</h3>
+      <p>ReAct Agent가 데이터 변경 영향도를 찾는 동안 연관 API를 반복 선택하고 불완전한 Context를 누적했습니다.</p>
+      <h3>Decision</h3>
+      <p>질문 해석과 도구 선택은 Agent에 남기고, 호출 순서가 중요한 Upstream·Downstream Lineage 조회는 결정론적 Workflow와 MCP Tool로 분리했습니다.</p>
+      <h3>Evidence</h3>
+      <p>GPT-4o-mini ReAct 대비 Answer Correctness 0.362→0.964, Correct Path Rate 0.536→0.967을 확인했습니다.</p>
+      <p><a href="https://github.com/junho-baek/AI-Fellowship-Demo" target="_blank" rel="noreferrer">public experiment: AI-Fellowship-Demo</a></p>
 
-      <h2>4) Parrot Kit</h2>
-      <h3>기획 의도</h3>
-      <p>크리에이터의 콘텐츠 제작·운영·수익화 흐름을 AI Native 방식으로 빠르게 실험하고 자동화하기 위한 툴킷입니다.</p>
-      <h3>주요 기능</h3>
-      <ul>
-        <li>콘텐츠 워크플로우 자동화 및 운영 도구화</li>
-        <li>유입-전환 측정을 위한 마케팅 이벤트 트래킹 내장</li>
-      </ul>
-      <h3>Role / Tech</h3>
-      <p>Build & Deploy | Codex, Supabase, Next.js, shadcn/ui, GTM, GA4, Meta Pixel, LemonSqueezy</p>
-      <p>repository: <a href="https://github.com/junho-baek/Parrotkit-deploy/tree/dev" target="_blank" rel="noreferrer">Parrotkit-deploy (dev)</a></p>
+      <h2 id="dundunai">4) 든든AI</h2>
+      <h3>Problem</h3>
+      <p>중장년 사용자는 숏폼 하나를 만들기 위해 기획·이미지·영상·음성·편집 도구를 각각 배워야 했습니다.</p>
+      <h3>Decision</h3>
+      <p>주제 입력부터 트렌드 탐색, 기획, 나레이션·이미지·영상 생성과 자동 편집을 하나의 Queue 기반 제품 흐름으로 연결하고, 동시 요청 장애 이후 워커를 분리했습니다.</p>
+      <h3>Evidence</h3>
+      <p>50명 조사, 초기 가입자 49명, 첫 영상 발행 82%를 확인했고 GenAI 활용 경진대회 금상과 Y-Startup³ 우수상을 수상했습니다.</p>
 
-      <h2>Impact Focus</h2>
-      <p>아이디어를 실험 가능한 제품으로 빠르게 전환하고, 운영 데이터를 통해 개선 루프를 반복하는 것을 핵심 원칙으로 둡니다.</p>
+      <h2 id="kpack">5) K-PACK</h2>
+      <h3>Problem</h3>
+      <p>한국 화장품 브랜드가 국가마다 다른 패키지 문구·규제·크리에이티브를 병렬로 준비하는 과정을 하나의 Agent 서비스로 줄이고자 했습니다.</p>
+      <h3>Decision</h3>
+      <p>UAE·북미·유럽·일본·중국 현지화를 병렬 실행하되, 규칙 엔진을 기준 결과로 두고 모델은 검증을 통과한 필드만 보강하게 했습니다.</p>
+      <h3>Evidence</h3>
+      <p>5일 안에 5개국 문구·근거 기반 규제 체크·3D 시안·숏폼 키비주얼을 연결해 Wanted AI Championship 2026에 출품했습니다. 결과는 확정 전입니다.</p>
+
+      <h2 id="parrotkit">6) ParrotKit</h2>
+      <h3>Problem</h3>
+      <p>브랜드의 가이드와 SKU 강점이 크리에이터의 실제 언어·촬영 장면·캠페인 운영으로 자연스럽게 이어지지 않았습니다.</p>
+      <h3>Decision</h3>
+      <p>SKU 이해→보여줄 장면→Hook→크리에이터 경험→고객 행동의 순서로 기획하고, AI는 사람을 대체하지 않고 소구점과 제약을 놓치지 않도록 지원하게 했습니다.</p>
+      <h3>Evidence</h3>
+      <p>뷰티 브랜드 미팅을 통해 TikTok Shop Affiliate의 크리에이터 발굴·소통·게시·성과 흐름을 캠페인 단위 제품으로 구체화했습니다.</p>
+      <p><a href="https://github.com/junho-baek/parrotkit_app" target="_blank" rel="noreferrer">repository: parrotkit_app</a></p>
+
+      <h2 id="glucofit">7) YBIGTA × Glucofit</h2>
+      <h3>Problem</h3>
+      <p>7명이 약 60만 건의 식사·혈당 데이터를 세 개 Task로 나눠 다루면서 CSV만으로는 데이터 형식과 결과를 다시 맞추는 통합 비용이 커졌습니다.</p>
+      <h3>Decision</h3>
+      <p>개인정보를 마스킹한 별도 PostgreSQL 개발 DB와 동일 스키마를 제안하고, FastAPI·pgvector로 분석·추천·화면을 통합했습니다.</p>
+      <h3>Evidence</h3>
+      <p>검토했던 CSV 공유 방식 대비 구현 시간을 약 1/3로 줄여 통합 데모를 시연했고 협력사 대표의 앱 반영 의사를 확인했습니다.</p>
+
+      <h2 id="labs">8) Open-Source Labs</h2>
+      <ul>
+        <li><a href="https://github.com/junho-baek/owncanvas" target="_blank" rel="noreferrer">OwnCanvas</a> — local-first creative AI canvas</li>
+        <li><a href="https://github.com/junho-baek/agentcart_priv" target="_blank" rel="noreferrer">AgentCart</a> — agent-native commerce context layer</li>
+        <li><a href="https://github.com/junho-baek/byokiyb" target="_blank" rel="noreferrer">BYOKIYB</a> — one-time local credential intake for agents</li>
+        <li><a href="https://github.com/junho-baek/oh-my-node-flow" target="_blank" rel="noreferrer">oh-my-node-flow</a> — visual node-flow experiments</li>
+      </ul>
+
+      <h2>Operating Principle</h2>
+      <p>가장 빠른 구현보다 의도에 맞게 실패하고, 같은 검증으로 고칠 수 있으며, 다음 사람이 이어서 운영할 수 있는 시스템을 지향합니다.</p>
 
       <p class="m">Back to terminal: <a href="../?lang=ko&cmd=projects">projects</a></p>
     </main>
