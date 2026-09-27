@@ -280,17 +280,16 @@ const commandData = [
   {id: "projects", command: "projects", description: {en: "selected projects", ko: "대표 프로젝트"}, lines: []},
 ];
 
-// One project source powers the terminal, case studies, GIF, and portfolio PDF.
+// Product experience is separate from the public repository list.
 const line = (type, marker, text, href) => ({type, marker, text, ...(href ? {href} : {})});
 commandData[1].lines = [
-  line('highlight', '04', {ko: 'AI 협업 · 크리에이티브 제작 · 커머스 맥락 · 키 전달', en: 'AI collaboration · creative production · commerce context · credential handoff'}),
+  line('highlight', '04', {ko: '든든AI · ParrotKit · COFATHON · SKT AI Fellowship', en: 'DundunAI · ParrotKit · COFATHON · SKT AI Fellowship'}),
   ...portfolio.projects.flatMap(project => [
     line('section', project.id, project.name),
     line('point', 'why', project.tagline),
     line('skill', 'built', project.built),
     line('link', 'open', {ko: `${project.name} 설계와 구현 보기`, en: `Explore ${project.name}`}, `?cmd=${project.id}`),
   ]),
-  line('link', 'pdf', {ko: '포트폴리오 PDF 다운로드', en: 'Download portfolio PDF'}, './downloads/baek-junho-portfolio.pdf'),
   line('link', 'cases', {ko: '네 프로젝트 상세 보기', en: 'Read all four case studies'}, './docs/projects.html'),
 ];
 for (const project of portfolio.projects) {
@@ -304,18 +303,13 @@ for (const project of portfolio.projects) {
       line('point', 'decision', project.decision),
       line('skill', 'flow', project.flow.join(' → ')),
       line('point', 'built', project.built),
+      line('point', 'result', project.outcome),
       line('info', 'scope', project.boundary),
       line('skill', 'stack', project.stack.join(' · ')),
-      line('link', 'code', {ko: '공개 저장소와 코드 보기', en: 'Open repository and source'}, `https://github.com/junho-baek/${project.repo}`),
       line('link', 'case', {ko: '설계 판단 자세히 읽기', en: 'Read design decisions'}, `./docs/projects.html#${project.id}`),
     ],
   });
 }
-commandData.push({id: 'pdf', command: 'pdf', description: {ko: '포트폴리오 다운로드', en: 'portfolio download'}, lines: [
-  line('highlight', 'portfolio', {ko: '백준호 | AI-Native Product Builder', en: 'Baek Junho | AI-Native Product Builder'}),
-  line('point', 'includes', 'Junho Probe Plate · OwnCanvas · AgentCart · BYOKIYB'),
-  line('link', 'download', {ko: '6페이지 포트폴리오 PDF 열기', en: 'Open the 6-page portfolio PDF'}, './downloads/baek-junho-portfolio.pdf'),
-]});
 
 const terminalOutput = document.getElementById("terminal-output");
 const commandBar = document.getElementById("command-bar");
@@ -503,7 +497,7 @@ async function appendRegularLine(line, token) {
   if (line.href) {
     const anchor = document.createElement("a");
     anchor.href = line.href;
-    if (line.href.startsWith('https:') || line.href.endsWith('.pdf')) {
+    if (line.href.startsWith('https:')) {
       anchor.target = "_blank";
       anchor.rel = "noreferrer";
     }

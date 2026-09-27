@@ -2,68 +2,237 @@
   "updated": "2026-09-28",
   "projects": [
     {
-      "id": "probe", "name": "Junho Probe Plate", "category": "AI COLLABORATION", "repo": "junho-probe-plate", "sha": "7410828bcf1e4c07eb5e1a0dbc161e501899e47d",
-      "tagline": {"ko": "빠른 AI 구현을, 설명하고 검증할 수 있는 작업으로.", "en": "Make fast AI implementation explainable and verifiable."},
-      "problem": {"ko": "코파톤 이후 현직자 리뷰에서 구조 분리, 타입 경계, 구현자의 이해가 라스트 마일 과제로 남았습니다. 빠르게 코드를 만드는 과정에서도 이 판단을 반복할 수 있는 개인 하네스가 필요했습니다.", "en": "Code review after COFATHON exposed gaps in structure, type boundaries, and developer understanding. I needed a reusable harness that preserves engineering judgment while AI implements quickly."},
-      "decision": {"ko": "기술은 코드와 실행 결과, 의도는 당시 질의와 검증 행동, 인지는 문서를 닫고 답하는 퀴즈로 확인합니다. 같은 checkpoint를 보는 구현·리팩터링·검증·리뷰·퀴즈 역할을 나눴습니다.", "en": "Use code and execution for Technique, contemporaneous actions for Intent, and closed-book answers for Cognition. Separate implementation, refactoring, verification, review, and quizzes around a fixed checkpoint."},
-      "built": {"ko": "프로젝트에 복사 설치하는 스킬, Query Wiki 기록 도구, 증거 검증 스크립트와 역할별 터미널 운영 지침을 공개했습니다.", "en": "Published installable project-local skills, Query Wiki tooling, evidence validators, and role-specific terminal workflows."},
-      "boundary": {"ko": "Codex의 질의 기록은 에이전트의 start/finish 호출에 의존합니다. 자동 기록 범위와 실제 행동 증거를 구분하며, 리팩터링 결과는 검증 뒤 통합합니다.", "en": "Codex logging depends on agent start/finish calls. Recorded queries and actual intent evidence remain distinct; refactoring is integrated after verification."},
-      "stack": ["Python", "Agent Skills", "Git worktrees", "JSONL", "Codex / Claude Code"],
-      "flow": ["User intent", "Producer", "Checkpoint", "Verify / Review / Quiz"],
-      "detail": [
-        {"title": "한 기준점을 병렬로 검증", "body": "구현자는 다음 독립 기능을 이어가고, 검증자는 고정된 commit을 읽습니다. 움직이는 코드의 결과를 같은 증거로 섞지 않습니다."},
-        {"title": "원문과 해석의 수명 관리", "body": "Query Wiki는 질의를 append-only로 남깁니다. 중요한 판단은 candidate/verified 주제로 승격하고, 뒤늦은 회고를 당시 의도로 소급하지 않습니다."},
-        {"title": "인지 확인을 별도 작업으로", "body": "퀴즈는 실제 파일과 의도 이벤트를 근거로 구조·결정 이유·실패 경로를 묻습니다. 구현자가 자기 말로 답한 뒤 판정하도록 설계했습니다."}
+      "id": "dundun",
+      "name": "든든AI",
+      "previewName": "DundunAI",
+      "category": "FOUNDER / AI CONTENT PRODUCT",
+      "tagline": {
+        "ko": "중장년의 첫 숏폼 발행까지, 제작 과정을 하나로.",
+        "en": "From a topic to a first published short-form video."
+      },
+      "problem": {
+        "ko": "중장년 사용자가 숏폼 하나를 만들기 위해 기획·이미지·영상·음성·편집 도구를 각각 익혀야 했습니다. 기능을 더하기보다 첫 영상 발행까지의 장벽을 낮추는 것이 문제였습니다.",
+        "en": "Middle-aged users had to learn separate planning, image, video, voice, and editing tools. The product problem was getting them to their first published video."
+      },
+      "decision": {
+        "ko": "주제 입력부터 트렌드 탐색, 기획, 나레이션·이미지·영상 생성과 편집을 하나의 제품 흐름으로 연결했습니다. 동시 요청 장애를 겪은 뒤 Queue와 워커를 분리해 긴 생성 작업을 처리했습니다.",
+        "en": "Connected topic research, planning, narration, image/video generation, and editing into one flow. After concurrent-request failures, separated queues and workers for long-running generation."
+      },
+      "built": {
+        "ko": "주제 입력 → 기획 → 생성 → 자동 편집을 잇는 End-to-End 숏폼 제작 SaaS를 기획·구현하고 초기 사용자로 검증했습니다.",
+        "en": "Designed and built an end-to-end short-form SaaS, from a topic to an edited video, and validated it with early users."
+      },
+      "outcome": {
+        "ko": "50명 조사 · 초기 가입자 49명 · 첫 영상 발행 82% · 연세 GenAI 금상 · Y-Startup³ 우수상",
+        "en": "50-person research · 49 early sign-ups · 82% first-video publication · Yonsei GenAI Gold · Y-Startup³ Excellence"
+      },
+      "boundary": {
+        "ko": "제품 검증의 기준은 생성 기능의 수보다 사용자가 실제로 첫 영상을 완성·발행하는 경험이었습니다. 사용자 수와 발행률은 초기 검증 기록 기준입니다.",
+        "en": "Early validation focused on completing and publishing a first video, not the number of generation features. User and publication figures refer to that initial cohort."
+      },
+      "stack": [
+        "React",
+        "FastAPI",
+        "n8n",
+        "Supabase",
+        "PostgreSQL",
+        "Queue / Workers"
       ],
-      "sources": ["README.md", ".agents/skills/junho-query-wiki/scripts/query_wiki.py", ".agents/skills/junho-plate/scripts/validate_evidence.py", ".agents/skills/junho-probe-skill/tests/test_quiz_contracts.py"]
+      "flow": [
+        "Topic",
+        "Plan",
+        "Generate",
+        "Edit / Publish"
+      ],
+      "detail": [
+        {
+          "title": "사용자의 숙련도에서 출발",
+          "body": "50명 조사로 제작 과정의 어려움을 확인하고, 개별 AI 도구 사용법 대신 결과물을 완성하는 흐름을 제품의 중심에 두었습니다."
+        },
+        {
+          "title": "긴 작업을 제품의 상태로 다루기",
+          "body": "동시 요청에서 드러난 문제를 계기로 생성 작업과 요청 처리를 분리했습니다. 생성이 오래 걸리는 상황까지 사용자 흐름에 포함했습니다."
+        },
+        {
+          "title": "결과물로 확인한 초기 검증",
+          "body": "초기 가입자와 첫 영상 발행을 확인하며 제품을 다듬었습니다. 연세 GenAI 활용 경진대회 금상과 Y-Startup³ 창업 경진대회 우수상으로 이어졌습니다."
+        }
+      ]
     },
     {
-      "id": "owncanvas", "name": "OwnCanvas", "category": "CREATIVE WORKSPACE", "repo": "owncanvas", "sha": "b6211bf9bc7dec908b0b84df462eded894d8e46b",
-      "tagline": {"ko": "이미 쓰는 AI를, 내 크리에이티브 작업 공간으로.", "en": "Use the AI you already pay for, in your own creative workspace."},
-      "problem": {"ko": "캠페인 소재를 만들 때 모델·도구마다 맥락과 결과가 흩어집니다. 사용자가 보유한 키와 모델을 연결하고 생성 과정을 한 캔버스에서 다루는 작업 공간을 만들었습니다.", "en": "Campaign creation scatters context and outputs across tools. OwnCanvas brings the user's keys, models, and generation steps into one creative canvas."},
-      "decision": {"ko": "React Flow 캔버스와 Go 생성 서비스를 분리하고, 생성 결과를 batch·job·node ID로 연결했습니다. 여러 이미지 요청에서 일부가 실패해도 노드별 상태와 재시도 경로를 유지합니다.", "en": "Separate the React Flow canvas from a Go generation service and correlate results by batch, job, and node IDs. Preserve per-node failures and retry paths in image batches."},
-      "built": {"ko": "React Router 작업 공간, 생성 블록 팔레트, 이미지 fan-out, Go worker pool, Replicate 어댑터와 실패 노드 재시도 계획이 구현되어 있습니다.", "en": "Implemented a React Router workspace, generation palette, image fan-out, Go worker pool, Replicate adapter, and failed-node retry planning."},
-      "boundary": {"ko": "공개 개발 버전입니다. 이미지 생성 경로와 계약 테스트가 있으며, 팔레트의 모든 모달리티가 같은 수준으로 완성되었다고 가정하지 않습니다. API 키는 생성 서비스에서 읽습니다.", "en": "A public development build with an image generation path and contract tests. Palette modalities are at different stages; API credentials are read by the generation service."},
-      "stack": ["TypeScript", "React Router v7", "React Flow", "Go", "Replicate"],
-      "flow": ["Image Block", "Fan-out plan", "Go worker pool", "Node results / retry"],
-      "detail": [
-        {"title": "생성 계획과 실행 분리", "body": "캔버스 어댑터는 노드·연결·요청을 계획하고, Go 서비스는 provider 호출을 실행합니다. UI 조작과 외부 API 실패가 만나는 경계를 명시했습니다."},
-        {"title": "한 노드의 실패를 추적", "body": "batch ID와 node ID로 결과를 원래 화면에 연결합니다. x1은 기존 노드를 갱신하고, 여러 장 생성은 별도 노드로 펼치며 실패한 노드를 다시 시도합니다."},
-        {"title": "동시 실행량을 제한", "body": "Go worker pool의 기본 동시 실행 수는 3, fan-out 상한은 10입니다. 응답은 입력 순서를 유지하며 각 작업의 성공·실패를 담습니다."}
+      "id": "parrotkit",
+      "name": "ParrotKit",
+      "category": "FOUNDER / CREATOR COMMERCE",
+      "tagline": {
+        "ko": "상품의 강점을, 크리에이터가 보여줄 장면과 캠페인으로.",
+        "en": "Turn product strengths into creator stories and campaigns."
+      },
+      "problem": {
+        "ko": "브랜드의 가이드와 SKU 강점이 크리에이터의 언어·촬영 장면·캠페인 운영으로 자연스럽게 이어지지 않았습니다. 좋은 카피 하나보다 브랜드와 크리에이터 사이의 실행 흐름이 필요했습니다.",
+        "en": "Brand guidelines and SKU strengths did not translate naturally into creator language, scenes, and campaign execution. The gap was a workflow, not just better copy."
+      },
+      "decision": {
+        "ko": "SKU 이해 → 보여줄 장면 → Hook → 크리에이터 경험 → 고객 행동 순서로 기획했습니다. AI는 창작자를 대체하기보다 상품의 소구점과 제약을 놓치지 않도록 지원하게 했습니다.",
+        "en": "Structured planning around SKU understanding, visible scenes, hooks, creator experience, and customer action. AI supports the creator while preserving product claims and constraints."
+      },
+      "built": {
+        "ko": "뷰티 브랜드 미팅을 통해 TikTok Shop Affiliate의 크리에이터 발굴·소통·게시·성과 흐름을 캠페인 단위 제품과 프로토타입으로 구체화했습니다.",
+        "en": "Used beauty-brand conversations to shape a campaign product and prototype for TikTok Shop Affiliate creator discovery, communication, posting, and performance."
+      },
+      "outcome": {
+        "ko": "브랜드 요구를 UGC 기획과 캠페인 운영 흐름으로 구체화 · 상품 중심 가이드를 크리에이터 중심 제작 경험으로 전환",
+        "en": "Translated brand needs into UGC planning and campaign operations · reframed product guidelines as a creator production experience"
+      },
+      "boundary": {
+        "ko": "브랜드 미팅과 프로토타입을 통해 문제와 워크플로우를 검증한 창업 프로젝트입니다. 핵심은 모델 선택 자체보다 실제 브랜드·크리에이터의 업무를 연결하는 제품 설계였습니다.",
+        "en": "A founder project validated through brand conversations and prototypes, centered on connecting actual brand and creator work rather than model choice alone."
+      },
+      "stack": [
+        "AI-assisted product engineering",
+        "UGC planning",
+        "TikTok Shop Affiliate",
+        "Campaign workflows"
       ],
-      "sources": ["README.md", "generation/internal/generation/service.go", "app/features/creative-canvas/adapters/image-generation-fanout.ts", "generation/internal/generation/redaction_test.go"]
+      "flow": [
+        "SKU / Brief",
+        "Scene / Hook",
+        "Creator content",
+        "Campaign feedback"
+      ],
+      "detail": [
+        {
+          "title": "상품 설명에서 촬영 가능한 기획으로",
+          "body": "SKU의 강점을 나열하는 데서 멈추지 않고, 어떤 장면으로 보여줄지와 크리에이터가 자기 경험으로 말할 수 있는지를 함께 설계했습니다."
+        },
+        {
+          "title": "발견형 커머스의 운영 단위",
+          "body": "콘텐츠 한 편뿐 아니라 크리에이터 발굴·소통·게시·성과를 캠페인 맥락으로 연결했습니다. 브랜드가 반복해서 운영할 수 있는 흐름을 목표로 했습니다."
+        },
+        {
+          "title": "도메인 요구를 구현에 연결",
+          "body": "뷰티 브랜드 미팅에서 얻은 요구를 가이드와 프로토타입에 반영했습니다. AI 활용의 가치는 생성량보다 브랜드 의도가 실제 콘텐츠에 유지되는 데 두었습니다."
+        }
+      ]
     },
     {
-      "id": "agentcart", "name": "AgentCart", "category": "AGENT COMMERCE", "repo": "agentcart_priv", "sha": "271fce158d46f0d19bbad5f97fa2582d2d615412",
-      "tagline": {"ko": "큐레이터의 취향과 추천 이유를, 에이전트가 읽게.", "en": "Make a curator's taste and recommendation context readable by agents."},
-      "problem": {"ko": "상품 링크만 전달하면 누가 누구에게 왜 추천하는지, 광고 관계는 무엇인지가 빠집니다. 크리에이터의 캠페인 맥락을 AI 쇼핑 대화 안에서도 유지하고자 했습니다.", "en": "A product link loses who recommends it, who it fits, and the commercial relationship. AgentCart preserves creator and campaign context inside AI shopping conversations."},
-      "decision": {"ko": "큐레이터·상품·에이전트 전달 맥락을 별도 프로토콜 객체로 나눴습니다. 추천은 등록 카드에 근거하고, 적합·부적합 대상, 예산, 고지와 위험 플래그를 함께 다룹니다.", "en": "Model curator, product, and agent-facing context separately. Ground recommendations in registered cards, including fit, exclusions, budget, disclosure, and risk flags."},
-      "built": {"ko": "로컬 JSON 레지스트리, CLI·조회 API, 큐레이터 범위 추천, 등록 초안 처리, 피드백 집계와 이식 가능한 쇼핑 스킬을 구현했습니다.", "en": "Built a local JSON registry, CLI and query API, curator-scoped recommendations, registration draft handling, feedback summaries, and a portable shopping skill."},
-      "boundary": {"ko": "가격은 확인 시점의 스냅샷입니다. 현재 구현은 로컬 MVP이며, 호스팅·계정·수익 분석은 후속 범위입니다. 상품 위험 플래그와 필터·감점 정책을 구분합니다.", "en": "Prices are snapshots. The current implementation is a local MVP; hosting, accounts, and revenue analytics are future work. Risk flags, filters, and score penalties have distinct roles."},
-      "stack": ["Node.js", "CLI / HTTP API", "JSON registry", "Commerce protocol", "Agent Skills"],
-      "flow": ["Curator prompt", "Scoped registry", "Fit + disclosure", "Recommendation"],
-      "detail": [
-        {"title": "배포 단위를 프롬프트로", "body": "사용자는 큐레이터 ID와 캠페인이 담긴 문장을 에이전트에 전달합니다. 에이전트가 등록된 맥락을 조회해 추천을 구성하는 유입 흐름입니다."},
-        {"title": "설명 가능한 추천 기준", "body": "검색어 관련성, 예산 적합성, notFor와 위험 항목을 점수에 반영합니다. 추천 이유와 고지를 상품 링크 앞에 제공하도록 스킬을 정의했습니다."},
-        {"title": "상품과 추천자 맥락 분리", "body": "CurationEntry, RecommenderPersona, AgentProductContext가 등록 정보와 에이전트용 정보를 연결합니다. 실시간 재고·최저가 같은 미확인 주장도 경계에 포함합니다."}
+      "id": "cofathon",
+      "name": "OLIVE BETTER · COFATHON",
+      "previewName": "OLIVE BETTER",
+      "category": "HACKATHON / WELLNESS COMMERCE",
+      "tagline": {
+        "ko": "MD의 기획 요청을, 안전한 기획전 발행과 반응 재적용까지.",
+        "en": "From an MD brief to a safe campaign and a feedback loop."
+      },
+      "problem": {
+        "ko": "올리브영 웰니스 MD가 공개 트렌드를 상품·카피·화면으로 전환하고 검토·발행·고객 반응 재적용까지 수행하는 MVP 과제였습니다. 생성 속도와 함께 상품 적격성, 위험 문구, 고객에게 노출되는 버전을 통제해야 했습니다.",
+        "en": "Build a wellness merchandising MVP that turns public trends into products, copy, and screens, then supports review, publication, and customer feedback. Eligibility, copy safety, and the customer-visible version needed explicit control."
+      },
+      "decision": {
+        "ko": "단일 Campaign Manager Agent는 초안을 제안하고, 상품·문구 안전·발행·반응 재적용은 결정론적 TypeScript 정책으로 검증했습니다. 외부 트렌드와 내부 고객 반응을 구분하고 live 실패를 mock 성공으로 숨기지 않았습니다.",
+        "en": "A single Campaign Manager Agent proposes drafts; deterministic TypeScript policies handle product/copy safety, publishing, and reaction updates. External trends remain distinct from internal reactions, and live failures are not disguised as mock success."
+      },
+      "built": {
+        "ko": "공개 RSS → 상품 정책 → LLM 카피·화면 JSON → MD 검토 → 발행 스냅샷 → 고객 반응 재적용을 연결한 어드민·고객 화면을 구현했습니다.",
+        "en": "Built admin and customer screens connecting public RSS, product policies, LLM copy/screen JSON, MD review, published snapshots, and reaction-driven updates."
+      },
+      "outcome": {
+        "ko": "2026 COFATHON 올리브영 트랙 TOP 3 · 최종 2위 · 현직자 코드 리뷰 후 Junho Probe Plate로 작업 방식 개선",
+        "en": "2026 COFATHON Olive Young Track TOP 3 · final 2nd · reviewer feedback developed into Junho Probe Plate"
+      },
+      "boundary": {
+        "ko": "해커톤 제출물은 인메모리 저장을 사용하는 MVP였습니다. 이후 기억과 기록으로 재현한 프로젝트와 당시 제출물을 구분하며, 운영 인증·영속 저장은 후속 과제로 남겼습니다.",
+        "en": "The submission was an in-memory MVP. A later reconstruction is distinct from the event-time artifact; production authentication and persistence remained follow-up work."
+      },
+      "stack": [
+        "TypeScript",
+        "React Router",
+        "OpenAI Agents SDK",
+        "Runtime skills",
+        "RSS",
+        "Unit / E2E tests"
       ],
-      "sources": ["README.md", "src/registry/recommend.js", "src/registry/protocol.js", "test/protocol.test.js"]
+      "flow": [
+        "Signals / Products",
+        "Agent draft",
+        "Review / Policy gate",
+        "Publish / Reactions"
+      ],
+      "detail": [
+        {
+          "title": "생성과 승인 권한을 분리",
+          "body": "LLM 출력만으로 안전성을 확정하지 않았습니다. 발행 직전에 고객 노출 문구와 상품 ID를 다시 검사하고, 고객 화면은 발행 스냅샷만 읽도록 했습니다."
+        },
+        {
+          "title": "실제 연결과 검증을 구분",
+          "body": "키가 없으면 blocked를 반환하고, mock은 명시적인 모드로만 사용했습니다. 최종 기록에는 타입 검사, 22개 단위 테스트, 4개 E2E와 별도 live smoke 결과를 구분해 남겼습니다."
+        },
+        {
+          "title": "수상 이후의 회고",
+          "body": "현직자 리뷰에서 타입 안전성, 큰 어드민 화면의 책임 분리, 서버·클라이언트 상태 관리, 전체 흐름의 이해를 보완점으로 확인했습니다. 이를 기술 리뷰·의도 기록·인지 퀴즈를 분리하는 Junho Probe Plate로 발전시켰습니다."
+        }
+      ],
+      "links": [
+        {
+          "label": "후속 작업 · Junho Probe Plate ↗",
+          "url": "https://github.com/junho-baek/junho-probe-plate"
+        }
+      ]
     },
     {
-      "id": "byokiyb", "name": "BYOKIYB", "category": "DEVELOPER EXPERIENCE", "repo": "byokiyb", "sha": "08d1cba0e13b4b11ec57191e359d527c8e575e03",
-      "tagline": {"ko": "휴대폰으로 키를 전달하고, 에이전트에는 상태만.", "en": "Send keys from your phone. Give agents only status."},
-      "problem": {"ko": "모바일에서 에이전트를 운전하다 API 키가 필요해지면 채팅에 붙여 넣기 쉽습니다. 사용자가 비밀값을 프로젝트에 직접 전달하는 짧은 설정 흐름을 만들었습니다.", "en": "When an agent needs an API key during mobile operation, pasting it into chat is tempting. BYOKIYB provides a short path for users to send secrets directly to their project."},
-      "decision": {"ko": "값을 입력하는 화면과 에이전트가 읽는 메타데이터를 분리했습니다. 일회용 코드·만료·철회 상태를 검사한 뒤 프로젝트 범위의 .env.local에 기록합니다.", "en": "Separate the secret intake form from agent-visible metadata. Check a one-time code, expiry, and revocation before writing to the project's .env.local."},
-      "built": {"ko": "CLI, 모바일 입력 화면, 키 슬롯 가이드, 세션 상태·철회, 원자적 env 파일 기록과 원문을 제외한 상태 응답을 구현했습니다.", "en": "Implemented a CLI, mobile intake form, key-slot guides, session status and revocation, atomic env writes, and status responses without raw secrets."},
-      "boundary": {"ko": "로컬 단일 사용자용 도구입니다. .env.local은 평문이며 암호화된 보관함을 제공하지 않습니다. 보호 목표는 대화·도구 응답·로그로의 우발적 비밀 노출을 줄이는 것입니다.", "en": "A local single-user tool. .env.local is plaintext, not an encrypted vault. Its goal is to reduce accidental secret exposure in conversations, tool responses, and logs."},
-      "stack": ["Node.js", "Local HTTP", "CLI", "One-time intake", "Agent-safe metadata"],
-      "flow": ["CLI request", "Mobile intake", "Project env file", "Safe status"],
-      "detail": [
-        {"title": "비밀을 보지 않아도 진행", "body": "에이전트에는 provider·key name·destination·presence·status만 전달합니다. 입력값은 사용자가 폼을 통해 직접 제공합니다."},
-        {"title": "입력 수명과 저장 경계", "body": "만료·철회·저장 완료 상태를 검사합니다. env 목적지의 프로젝트 상대 경로를 확인하고, 임시 파일과 rename으로 기록을 완료하며 권한은 0600으로 설정합니다."},
-        {"title": "키 이름부터 정확하게", "body": "가이드와 manifest는 서비스별 환경변수 슬롯을 안내합니다. 값을 요청하기 전에 어떤 프로젝트의 어떤 슬롯이 필요한지 구체화합니다."}
+      "id": "lineage",
+      "name": "SKT AI Fellowship",
+      "category": "RESEARCH / DATA LINEAGE AGENT",
+      "tagline": {
+        "ko": "자유로운 추론과, 정확한 순서가 필요한 데이터 탐색을 분리.",
+        "en": "Separate flexible reasoning from ordered lineage retrieval."
+      },
+      "problem": {
+        "ko": "Data Lineage Impact Analysis Agent에서 ReAct가 연관 API를 반복 선택하며 불완전한 맥락을 누적했습니다. 데이터 변경이 어디에 영향을 미치는지 답하려면 조회의 순서와 경로가 정확해야 했습니다.",
+        "en": "A ReAct-based Data Lineage Impact Analysis Agent repeatedly selected related APIs and accumulated incomplete context. Reliable change-impact answers required correct retrieval order and paths."
+      },
+      "decision": {
+        "ko": "질문 해석과 도구 선택은 Agent에 남기고, 순서가 중요한 Upstream·Downstream Lineage 조회는 결정론적 Workflow와 MCP Tool로 분리했습니다.",
+        "en": "Kept question interpretation and tool selection with the agent, while moving ordered upstream/downstream lineage retrieval into deterministic workflows and MCP tools."
+      },
+      "built": {
+        "ko": "LangGraph·LangChain 기반 Agent와 MCP 조회 도구를 연결해 데이터 계보를 탐색하고 변경 영향도를 분석하는 구조를 구현·평가했습니다.",
+        "en": "Implemented and evaluated a LangGraph/LangChain agent with MCP retrieval tools for data lineage exploration and change-impact analysis."
+      },
+      "outcome": {
+        "ko": "프로젝트 벤치마크: Answer Correctness 0.362 → 0.964 · Correct Path Rate 0.536 → 0.967",
+        "en": "Project benchmark: Answer Correctness 0.362 → 0.964 · Correct Path Rate 0.536 → 0.967"
+      },
+      "boundary": {
+        "ko": "SKT AI Fellowship 7기(2025.06–11) 프로젝트입니다. 수치는 프로젝트 평가 조건에서 GPT-4o-mini ReAct 기준선과 비교한 결과이며, 모델 전반의 성능을 뜻하지 않습니다.",
+        "en": "SKT AI Fellowship 7th cohort, June–November 2025. Figures compare the project solution with a GPT-4o-mini ReAct baseline under the project's evaluation conditions."
+      },
+      "stack": [
+        "LangGraph",
+        "LangChain",
+        "MCP",
+        "Redis",
+        "Docker"
       ],
-      "sources": ["README.md", "src/server.js", "src/envFile.js", "test/server.test.js"]
+      "flow": [
+        "Question",
+        "Agent reasoning",
+        "Lineage workflow",
+        "Impact analysis"
+      ],
+      "detail": [
+        {
+          "title": "실패를 모델 성능으로만 보지 않기",
+          "body": "반복되는 도구 선택과 누락되는 맥락을 확인하고, 정확한 실행 순서가 필요한 탐색을 LLM에 매번 맡기는 구조 자체를 개선 대상으로 삼았습니다."
+        },
+        {
+          "title": "Agent와 Workflow의 책임 나누기",
+          "body": "자연어 해석의 유연성은 유지하면서 데이터 계보 조회의 순서와 수집 범위를 도구 안으로 옮겼습니다. 추론과 탐색 실행을 각각 개선할 수 있는 경계입니다."
+        },
+        {
+          "title": "답과 경로를 따로 평가",
+          "body": "답변이 맞는지뿐 아니라 올바른 경로를 탐색했는지도 평가했습니다. Answer Correctness와 Correct Path Rate를 함께 비교해 구조 변경의 효과를 확인했습니다."
+        }
+      ]
     }
   ]
 }

@@ -10,8 +10,6 @@
   ·
   <a href="https://junho-baek.github.io/junho-baek/docs/projects.html">Project Notes</a>
   ·
-  <a href="https://junho-baek.github.io/junho-baek/downloads/baek-junho-portfolio.pdf">Portfolio PDF</a>
-  ·
   <a href="https://github.com/junho-baek?tab=repositories">Repositories</a>
   ·
   <a href="mailto:junho6610@yonsei.ac.kr">Email</a>
@@ -41,16 +39,20 @@
 
 ## Selected Projects
 
-| Project | Problem → Implementation | Explore |
+| Project | Problem → Product | Notes |
 | --- | --- | --- |
-| **Junho Probe Plate** | AI 협업의 기술·의도·인지를 독립 증거로 검증. checkpoint 기반 병렬 역할, Query Wiki, 인지 퀴즈를 담은 개인 하네스 | [Code](https://github.com/junho-baek/junho-probe-plate) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#probe) |
-| **OwnCanvas** | 내 키와 모델을 연결하는 크리에이티브 캔버스. React Flow와 Go 생성 서비스를 나누고 이미지 fan-out·노드별 결과·재시도를 연결 | [Code](https://github.com/junho-baek/owncanvas) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#owncanvas) |
-| **AgentCart** | 큐레이터의 취향·추천 이유·광고 고지를 쇼핑 에이전트에 전달. 등록 카드와 페르소나를 연결하는 CLI·레지스트리 API·스킬 | [Code](https://github.com/junho-baek/agentcart_priv) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#agentcart) |
-| **BYOKIYB** | 모바일 폼에서 로컬 프로젝트로 API 키를 전달. 일회용 입력·만료·철회·env 기록을 제공하고 에이전트에는 상태만 노출 | [Code](https://github.com/junho-baek/byokiyb) · [Case study](https://junho-baek.github.io/junho-baek/docs/projects.html#byokiyb) |
+| **든든AI** | 중장년의 숏폼 제작 장벽을 낮춘 End-to-End AI SaaS. 주제·기획·생성·편집을 연결하고 초기 사용자로 검증 | [제품 경험](https://junho-baek.github.io/junho-baek/docs/projects.html#dundun) |
+| **ParrotKit** | 브랜드의 SKU 강점을 크리에이터의 장면·Hook·콘텐츠로 전환. TikTok Shop Affiliate의 발굴·소통·게시·성과를 캠페인 흐름으로 구체화 | [기획과 구현](https://junho-baek.github.io/junho-baek/docs/projects.html#parrotkit) |
+| **OLIVE BETTER · COFATHON** | 웰니스 트렌드부터 상품·카피·화면 생성, 안전 검증·발행·반응 재적용까지. 올리브영 트랙 최종 2위와 현직자 리뷰 이후의 개선 | [구현과 회고](https://junho-baek.github.io/junho-baek/docs/projects.html#cofathon) |
+| **SKT AI Fellowship** | 데이터 계보·변경 영향도 분석 Agent. 추론과 순차 조회 Workflow를 분리해 답변 정확도와 탐색 경로를 개선 | [설계와 평가](https://junho-baek.github.io/junho-baek/docs/projects.html#lineage) |
 
-[Live terminal](https://junho-baek.github.io/junho-baek/)에서 `projects`, `probe`, `owncanvas`, `agentcart`, `byokiyb`, `pdf`를 선택해 탐색할 수 있습니다.
+[Live terminal](https://junho-baek.github.io/junho-baek/)에서 `projects`, `dundun`, `parrotkit`, `cofathon`, `lineage`로 탐색할 수 있습니다.
 
-[포트폴리오 PDF 다운로드](https://junho-baek.github.io/junho-baek/downloads/baek-junho-portfolio.pdf) · [네 프로젝트의 설계와 구현](https://junho-baek.github.io/junho-baek/docs/projects.html)
+## Public Repositories
+
+작업하며 공개한 도구와 실험입니다. 대표 프로젝트 경험은 위의 Selected Projects에 따로 정리했습니다.
+
+[Junho Probe Plate](https://github.com/junho-baek/junho-probe-plate) · [OwnCanvas](https://github.com/junho-baek/owncanvas) · [AgentCart](https://github.com/junho-baek/agentcart_priv) · [BYOKIYB](https://github.com/junho-baek/byokiyb)
 
 ## How I Work
 

@@ -208,10 +208,10 @@ const ProjectScreen = ({frame}) => {
       <TypedLine frame={frame} startFrame={164} marker="user" text="junho@builder:~$ projects" />
       <TypedLine frame={frame} startFrame={174} marker="user" text="cat selected_projects.md" />
       {portfolio.projects.map((project, index) => (
-        <TypedLine key={project.id} frame={frame} startFrame={188 + index * 14} marker="proj" text={`[${project.name}] ${project.tagline.en}`} />
+        <TypedLine key={project.id} frame={frame} startFrame={188 + index * 14} marker="proj" text={`[${project.previewName || project.name}] ${project.tagline.en}`} />
       ))}
-      <TypedLine frame={frame} startFrame={244} marker="git" text="github.com/junho-baek | four public projects" />
-      <TypedLine frame={frame} startFrame={258} marker="next" text="Explore the live terminal -> projects / probe / owncanvas / agentcart / byokiyb / pdf" />
+      <TypedLine frame={frame} startFrame={244} marker="git" text="github.com/junho-baek | selected product work" />
+      <TypedLine frame={frame} startFrame={258} marker="next" text="Explore the live terminal -> projects / dundun / parrotkit / cofathon / lineage" />
     </div>
   );
 };
